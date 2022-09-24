@@ -8,7 +8,8 @@ const SkillsListItem = ({ direction = 'right' }: Props) => {
   return (
     <a className={ 'group relative flex' }
        href={ 'https://angular.io/' }
-       target={ '_blank' }>
+       target={ '_blank' }
+       rel={ 'noreferrer' }>
       <motion.img
         initial={ {
           x: direction === 'left' ? -200 : 200,

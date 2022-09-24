@@ -23,6 +23,7 @@ const ContactInformation = () => {
 
           <a href={ 'https://www.google.com/maps/dir//Rue+de+la+Croix+26,+6042+Charleroi/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x47c228a5bddad297:0x29a2635960ea66e?sa=X&ved=2ahUKEwj8wc_L5q36AhUB2qQKHYSPA7oQwwV6BAgOEAM' }
              target={ '_blank' }
+             rel={ 'noreferrer' }
              className={ 'text-2xl' }>
             26 rue de la croix, 6042 Lodelinsart
           </a>
