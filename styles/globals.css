@@ -48,3 +48,52 @@
 		resize: none;
 	}
 }
+
+/* XS */
+@media only screen and (min-width: 0px) and (max-width: 599.95px) {
+  html {
+    font-size: 10px !important;
+  }
+}
+
+/* SM */
+@media only screen and (min-width: 600px) and (max-width: 899.95px) {
+  html {
+    font-size: 12px !important;
+  }
+}
+
+/* MD */
+@media only screen and (min-width: 900px) and (max-width: 1199.95px) {
+  html {
+    font-size: 14px !important;
+  }
+}
+
+/* LG */
+@media only screen and (min-width: 1200px) and (max-width: 1535.95px) {
+  html {
+    font-size: 16px !important;
+  }
+}
+
+/* XL */
+@media only screen and (min-width: 1536px) and (max-width: 2047.95px) {
+  html {
+    font-size: 16px !important;
+  }
+}
+
+/* 2k  screens */
+@media only screen and (min-width: 2048px) and (max-width: 3839.95px) {
+  html {
+    font-size: 20px !important;
+  }
+}
+
+/* 4k and + screens */
+@media only screen and (min-width: 3840px) {
+  html {
+    font-size: 24px !important;
+  }
+}
