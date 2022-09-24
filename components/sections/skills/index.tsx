@@ -10,7 +10,8 @@ const Skills = () => {
       initial={ { opacity: 0 } }
       whileInView={ { opacity: 1 } }
       transition={ { duration: 1.5 } }
-      className={ 'snap-center' +
+      viewport={ { once: true } }
+      className={ 'snap-start' +
                   ' h-screen' +
                   ' flex' +
                   ' relative' +

@@ -38,12 +38,12 @@ const Header = () => {
         transition={ {
           duration: 0.75
         } }
-        className={ 'flex flex-row items-center cursor-pointer text-gray-300' }>
+        className={ 'text-gray-300' }>
         <HeaderContactIcon />
-        <p className={ 'uppercase text-sm text-gray-400 hidden md:inline-flex' }>Get In Touch</p>
       </motion.div>
     </header>
-  );
+  )
+    ;
 };
 
 export default Header;
