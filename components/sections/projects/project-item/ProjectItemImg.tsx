@@ -12,7 +12,7 @@ const ProjectItemImg = ({ project: { img, name } }: Props) => {
         y: -300,
         opacity: 0
       } }
-      whileInView={ {
+      animate={ {
         y: 0,
         opacity: 1
       } }
@@ -20,7 +20,7 @@ const ProjectItemImg = ({ project: { img, name } }: Props) => {
       viewport={ { once: true } }
       src={ img }
       alt={ `${ name }-img` }
-      className={ 'max-h-[30vh]' } />
+      className={ 'max-w-[20vh] max-h-[20vh]' } />
   );
 };
 

@@ -12,7 +12,6 @@ const Skills = () => {
       transition={ { duration: 1.5 } }
       viewport={ { once: true } }
       className={ 'snap-start' +
-                  ' h-screen' +
                   ' flex' +
                   ' relative' +
                   ' flex-col' +

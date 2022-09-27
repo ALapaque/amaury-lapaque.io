@@ -1,6 +1,9 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import { useRef } from 'react';
 import Header from '../components/header';
+import scrollToTopButton from '../components/ScrollToTopButton';
+import ScrollToTopButton from '../components/ScrollToTopButton';
 import About from '../components/sections/about';
 import Contact from '../components/sections/contact';
 import Hero from '../components/sections/hero';
@@ -9,8 +12,11 @@ import Skills from '../components/sections/skills';
 import WorkExperience from '../components/sections/work-experience';
 
 const Home: NextPage = () => {
+  const scrollableContainerRef = useRef<HTMLDivElement | null>(null);
+
   return (
-    <div className={ 'bg-[rgb(46,46,46)] text-white h-screen snap-y snap-mandatory overflow-y-scroll' +
+    <div ref={ scrollableContainerRef }
+         className={ 'bg-[rgb(46,46,46)] text-white h-screen snap-y snap-mandatory overflow-y-scroll' +
                      ' overflow-x-hidden z-0' }>
       <Head>
         <title>Amaury Lapaque</title>
@@ -32,6 +38,8 @@ const Home: NextPage = () => {
 
       {/* Contact me */ }
       <Contact />
+
+      <ScrollToTopButton scrollableContainerRef={scrollableContainerRef} />
     </div>
   );
 };

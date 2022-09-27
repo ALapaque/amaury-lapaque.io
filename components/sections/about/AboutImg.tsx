@@ -2,17 +2,17 @@ import { motion } from 'framer-motion';
 
 const AboutImg = () => (
   <motion.img
-    className={'mb-20' +
-               ' md:mb-0 ' +
+    className={'mb-2' +
+               ' xl:mb-20' +
                ' flex-shrink-0' +
-               ' w-56' +
-               ' h-56' +
+               ' w-40' +
+               ' h-40' +
                ' rounded-full' +
                ' object-cover' +
                ' md:rounded-lg' +
                ' md:w-64' +
-               ' md:h-96' +
-               ' xl:w-[500px] xl:h-[600px]'}
+               ' md:h-80' +
+               ' xl:w-[500px] xl:h-[50vh]'}
     initial={ {
       x: -200,
       opacity: 0,

@@ -77,6 +77,10 @@ const ProjectList = () => {
                    ' - Implementation of the Redux pattern using NgRx\n' +
                    ' - @ngrx/entities\n' +
                    ' - @ngrx/store-components\n' +
+                   ' - Development of a theme module with components matching the UX designer mocks' +
+                   ' - Development of a theme module with components matching the UX designer mocks' +
+                   ' - Development of a theme module with components matching the UX designer mocks' +
+                   ' - Development of a theme module with components matching the UX designer mocks' +
                    ' - Development of a theme module with components matching the UX designer mocks',
       stacks: 'Angular - NgRx - TypeScript'
     }

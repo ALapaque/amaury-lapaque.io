@@ -14,14 +14,14 @@ const About = () => {
       className={ 'relative' +
                   ' flex' +
                   ' flex-col' +
-                  ' snap-center' +
+                  ' snap-start' +
                   ' h-screen' +
                   ' text-center' +
                   ' md:text-left' +
                   ' md:flex-row' +
                   ' max-w-7xl' +
-                  ' px-10' +
-                  ' justify-evenly' +
+                  ' px-5' +
+                  ' justify-center' +
                   ' mx-auto' +
                   ' items-center' }>
       <AboutTitle />
