@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import Section from '../index';
 import AboutDescription from './AboutDescription';
 import AboutImg from './AboutImg';
 import AboutTitle from './AboutTitle';

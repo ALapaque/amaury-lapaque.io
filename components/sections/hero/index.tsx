@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import Section from '../index';
 import HeroBackgroundAnimation from './HeroBackgroundAnimation';
 import HeroButtons from './HeroButtons';
 import HeroImg from './HeroImg';
