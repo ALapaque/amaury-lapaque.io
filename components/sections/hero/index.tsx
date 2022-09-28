@@ -9,7 +9,7 @@ import HeroTitle from './HeroTitle';
 const Hero = () => {
   return (
     <motion.section
-      id={ 'projects' }
+      id={ 'hero' }
       initial={ { opacity: 0 } }
       whileInView={ { opacity: 1 } }
       transition={ { duration: 1.5 } }
