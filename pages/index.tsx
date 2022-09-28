@@ -17,7 +17,9 @@ const Home: NextPage = () => {
   return (
     <div ref={ scrollableContainerRef }
          className={ 'bg-[rgb(46,46,46)] text-white h-screen snap-y snap-mandatory overflow-y-scroll' +
-                     ' overflow-x-hidden z-0' }>
+                     ' overflow-x-hidden z-0' +
+                     ' scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80 scrollbar-thin' +
+                     ' scrollbar-thumb-rounded-full hover:scrollbar-thumb-[#F7AB0A]/60 ' }>
       <Head>
         <title>Amaury Lapaque</title>
       </Head>
@@ -39,7 +41,7 @@ const Home: NextPage = () => {
       {/* Contact me */ }
       <Contact />
 
-      <ScrollToTopButton scrollableContainerRef={scrollableContainerRef} />
+      <ScrollToTopButton scrollableContainerRef={ scrollableContainerRef } />
     </div>
   );
 };
