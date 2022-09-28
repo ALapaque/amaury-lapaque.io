@@ -17,7 +17,6 @@ const Skills = () => {
                   ' flex-col' +
                   ' text-center' +
                   ' md:text-left' +
-                  ' xl:flex-row' +
                   ' max-w-[2000px]' +
                   ' xl:px-10' +
                   ' min-h-screen' +

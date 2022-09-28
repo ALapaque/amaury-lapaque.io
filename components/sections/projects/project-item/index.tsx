@@ -9,7 +9,7 @@ interface Props {
 
 const ProjectItem = ({project}: Props) => {
   return (
-    <motion.div
+    <motion.article
       initial={ {
         opacity: 0
       } }
@@ -20,11 +20,10 @@ const ProjectItem = ({project}: Props) => {
       className={ 'w-screen h-screen flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center' +
                   ' p-20' +
                   ' md:p-44' }>
-
       <ProjectItemImg project={project} />
 
       <ProjectDetails project={project} />
-    </motion.div>
+    </motion.article>
   )
 }
 

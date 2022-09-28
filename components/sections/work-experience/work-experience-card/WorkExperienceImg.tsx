@@ -4,18 +4,18 @@ const WorkExperienceImg = () => {
   return (
     <motion.img
       initial={ {
-        y: -100,
+        y: -300,
         opacity: 0
       } }
-      whileInView={ {
+      animate={ {
         y: 0,
         opacity: 1
       } }
-      transition={ { duration: 1.2 } }
+      transition={ { duration: 1 } }
       viewport={ { once: true } }
-      className={ 'w-32 h-32 rounded-full xl:w-[200px] xl:h-[200px] object-cover object-center' }
       src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Amazon_icon.svg/2500px-Amazon_icon.svg.png"
-      alt="Amazon" />
+      alt={ 'img' }
+      className={ 'max-w-[20vh] max-h-[10vh]' } />
   )
 }
 

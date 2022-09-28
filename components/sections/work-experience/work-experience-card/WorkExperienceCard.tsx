@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import WorkExperienceDetails from './WorkExperienceDetails';
 import WorkExperienceImg from './WorkExperienceImg';
 import WorkExperienceSkills from './WorkExperienceSkills';
@@ -6,33 +7,26 @@ import WorkExperienceTitle from './WorkExperienceTitle';
 
 const WorkExperienceCard = () => {
   return (
-    <article className={'snap-center' +
-                        ' bg-[#292929]' +
-                        ' p-10' +
-                        ' flex' +
-                        ' flex-col' +
-                        ' rounded-lg' +
-                        ' items-center' +
-                        ' space-y-7' +
-                        ' flex-shrink-0' +
-                        ' opacity-100' +
-                        ' hover:opacity-40' +
-                        ' cursor-pointer' +
-                        ' transition-opacity' +
-                        ' duration-200' +
-                        ' overflow-hidden' +
-                        ' w-[500px]' +
-                        ' md:w-[600px]' +
-                        ' xl:w-[900px]'}>
+    <motion.article
+      initial={ {
+        opacity: 0
+      } }
+      whileInView={ {
+        opacity: 1
+      } }
+      transition={ { duration: 1 } }
+      className={ 'w-screen h-screen flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center' +
+                  ' p-20' +
+                  ' md:p-44' }>
       <WorkExperienceImg />
 
-      <div className={'px-0 md:px-10'}>
+      <div className={'space-y-2 px-0 md:px-10 max-w-6xl'}>
         <WorkExperienceTitle />
         <WorkExperienceSubtitle />
         <WorkExperienceSkills />
         <WorkExperienceDetails />
       </div>
-    </article>
+    </motion.article>
   );
 };
 
