@@ -38,7 +38,7 @@ const Home: NextPage<Props> = ({ pageInfo, experiences, skills, projects, social
       projects,
       socials
     });
-  }, [ setDataState ]);
+  }, [ pageInfo, experiences, skills, projects, socials ]);
 
   return (
     <div ref={ scrollableContainerRef }

@@ -9,6 +9,7 @@ interface Props {
 const ProjectItemImg = ({ project: { image, title, linkToBuild } }: Props) => {
   return (
     <a href={ linkToBuild }
+       rel={ 'noreferrer' }
        target={ '_blank' }>
       <motion.img
         initial={ {
