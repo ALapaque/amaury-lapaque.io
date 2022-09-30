@@ -1,4 +1,5 @@
 import type { NextPage } from 'next';
+import { groq } from 'next-sanity';
 import Head from 'next/head';
 import { useEffect, useRef } from 'react';
 import { useSetRecoilState } from 'recoil';
@@ -10,6 +11,7 @@ import Hero from '../components/sections/hero';
 import Projects from '../components/sections/projects';
 import Skills from '../components/sections/skills';
 import WorkExperience from '../components/sections/work-experience';
+import { sanityClient } from '../sanity';
 import { DataState } from '../stores/data';
 import { Experience, PageInfo, Project, Skill, Social } from '../typing';
 
@@ -75,14 +77,23 @@ export default Home;
  */
 export async function getServerSideProps() {
   const baseUrl: string = process.env.NEXT_PUBLIC_BASE_URl as string;
-  const promises = await Promise.all([
-    fetch(`${ baseUrl }/api/getWorkExperiences`),
-    fetch(`${ baseUrl }/api/getPageInformations`),
-    fetch(`${ baseUrl }/api/getProjectList`),
-    fetch(`${ baseUrl }/api/getTechnologies`),
-    fetch(`${ baseUrl }/api/getSocialLinks`)
+  const [ experiences, pageInfo, projects, skills, socials ] = await Promise.all([
+    sanityClient.fetch(groq`
+      *[_type == 'experience'] {
+        ...,
+        technologies[]->
+      }
+    `),
+    sanityClient.fetch(groq`*[_type == 'pageInfo'][0]`),
+    sanityClient.fetch(groq`
+      *[_type == 'project'] {
+        ...,
+        technologies[]->
+      }
+    `),
+    sanityClient.fetch(groq`*[_type == 'skill']`),
+    sanityClient.fetch(groq`*[_type == 'social']`)
   ]);
-  const [ { experiences }, { pageInfo }, { projects }, { skills }, { socials } ] = await Promise.all(promises.map((promise) => promise.json()));
 
   return {
     props: {
