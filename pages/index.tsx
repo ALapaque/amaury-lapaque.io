@@ -1,4 +1,5 @@
 import type { NextPage } from 'next';
+import { groq } from 'next-sanity';
 import Head from 'next/head';
 import { useEffect, useRef } from 'react';
 import { useSetRecoilState } from 'recoil';
@@ -10,6 +11,7 @@ import Hero from '../components/sections/hero';
 import Projects from '../components/sections/projects';
 import Skills from '../components/sections/skills';
 import WorkExperience from '../components/sections/work-experience';
+import { sanityClient } from '../sanity';
 import { DataState } from '../stores/data';
 import { Experience, PageInfo, Project, Skill, Social } from '../typing';
 
@@ -26,12 +28,30 @@ const Home: NextPage<Props> = ({ pageInfo, experiences, skills, projects, social
   const scrollableContainerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    setDataState({
-      pageInfo,
-      experiences,
-      skills,
-      projects,
-      socials
+    Promise.all([
+      sanityClient.fetch(groq`
+      *[_type == 'experience'] {
+        ...,
+        technologies[]->
+      }
+    `),
+      sanityClient.fetch(groq`*[_type == 'pageInfo'][0]`),
+      sanityClient.fetch(groq`
+      *[_type == 'project'] {
+        ...,
+        technologies[]->
+      }
+    `),
+      sanityClient.fetch(groq`*[_type == 'skill']`),
+      sanityClient.fetch(groq`*[_type == 'social']`)
+    ]).then(([ experiences, pageInfo, projects, skills, social ]) => {
+      setDataState({
+        pageInfo,
+        experiences,
+        skills,
+        projects,
+        socials
+      });
     });
   }, []);
 
