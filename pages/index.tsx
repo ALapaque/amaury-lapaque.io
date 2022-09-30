@@ -73,7 +73,7 @@ export default Home;
  * SSR
  * @returns {Promise<{props: {skills: any, projects: any, pageInfo: any, socials: any, experiences: any}}>}
  */
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const baseUrl: string = process.env.NEXT_PUBLIC_BASE_URl as string;
   const promises = await Promise.all([
     fetch(`${ baseUrl }/api/getWorkExperiences`),
@@ -91,6 +91,7 @@ export async function getServerSideProps() {
       skills,
       projects,
       socials
-    }
+    },
+    revalidate: 3600
   };
 }
