@@ -70,7 +70,7 @@ const Home: NextPage<Props> = ({ pageInfo, experiences, skills, projects, social
 export default Home;
 
 /**
- * SSR
+ * SSR to fetch datas
  * @returns {Promise<{props: {skills: any, projects: any, pageInfo: any, socials: any, experiences: any}}>}
  */
 export async function getServerSideProps() {
