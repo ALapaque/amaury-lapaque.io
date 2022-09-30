@@ -69,7 +69,7 @@ const Home: NextPage<Props> = ({ pageInfo, experiences, skills, projects, social
 
 export default Home;
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const baseUrl: string = process.env.NEXT_PUBLIC_BASE_URl as string;
   const promises = await Promise.all([
     fetch(`${ baseUrl }/api/getWorkExperiences`),
@@ -87,7 +87,6 @@ export async function getStaticProps() {
       skills,
       projects,
       socials
-    },
-    revalidate: 86400 // 24h
+    }
   };
 }
