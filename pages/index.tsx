@@ -1,4 +1,4 @@
-import type { GetStaticProps, NextPage } from 'next';
+import type { NextPage } from 'next';
 import Head from 'next/head';
 import { useEffect, useRef } from 'react';
 import { useSetRecoilState } from 'recoil';
@@ -38,7 +38,7 @@ const Home: NextPage<Props> = ({ pageInfo, experiences, skills, projects, social
       projects,
       socials
     });
-  }, [ pageInfo, experiences, skills, projects, socials ]);
+  }, [ setDataState, pageInfo, experiences, skills, projects, socials ]);
 
   return (
     <div ref={ scrollableContainerRef }
@@ -74,7 +74,7 @@ const Home: NextPage<Props> = ({ pageInfo, experiences, skills, projects, social
 
 export default Home;
 
-export const getStaticProps: GetStaticProps<Props> = async () => {
+export async function getStaticProps() {
   const pageInfo: PageInfo = await fetchPageInfo();
   const experiences: Experience[] = await fetchExperiences();
   const skills: Skill[] = await fetchSkills();
@@ -91,4 +91,4 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     },
     revalidate: 86400 // 24h
   };
-};
+}

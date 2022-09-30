@@ -16,7 +16,7 @@ const ScrollToTopButton = ({ scrollableContainerRef }: Props) => {
     }
 
     setIsDisplay(container.scrollTop > 300);
-  }, [ scrollableContainerRef?.current?.scrollTop ]);
+  }, [ scrollableContainerRef, scrollableContainerRef?.current?.scrollTop ]);
 
   if (!isDisplay) {
     return <></>;
