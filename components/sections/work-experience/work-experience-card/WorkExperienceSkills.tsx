@@ -1,19 +1,19 @@
+import { Experience, Skill } from '../../../../typing';
 import WorkExperienceSkill from './WorkExperienceSkill';
 
-const WorkExperienceSkills = () => {
-  return (
-    <div className={'grid grid-cols-4 md:grid-cols-6 gap-2 justify-items-center'}>
-      <WorkExperienceSkill/>
-      <WorkExperienceSkill/>
-      <WorkExperienceSkill/>
-      <WorkExperienceSkill/>
-      <WorkExperienceSkill/>
-      <WorkExperienceSkill/>
-      <WorkExperienceSkill/>
-      <WorkExperienceSkill/>
-      <WorkExperienceSkill/>
-    </div>
-  )
+interface Props {
+  experience: Experience;
 }
 
-export default WorkExperienceSkills
+const WorkExperienceSkills = ({ experience }: Props) => {
+  return (
+    <div className={ 'grid grid-cols-4 md:grid-cols-6 gap-2 justify-items-center' }>
+      { experience.technologies.map((skill: Skill, index: number) => (
+        <WorkExperienceSkill key={ index }
+                             skill={ skill } />
+      )) }
+    </div>
+  );
+};
+
+export default WorkExperienceSkills;

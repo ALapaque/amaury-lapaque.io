@@ -1,13 +1,23 @@
+import { useRecoilValue } from 'recoil';
+import { socialsSelector } from '../../stores/data';
+import { Social } from '../../typing';
 import HeaderSocialIcon from './HeaderSocialIcon';
 
 const HeaderSocialIcons = () => {
+  const socials = useRecoilValue<Social[] | undefined>(socialsSelector);
+
+  if (!socials) {
+    return <></>;
+  }
+
   return (
     <>
-      <HeaderSocialIcon url={'https://www.linkedin.com/in/amaury-lapaque/'} />
-      <HeaderSocialIcon url={'https://github.com/ALapaque'} />
-      <HeaderSocialIcon url={'https://open.spotify.com/user/latxkyee5rys801h77yjuk06h'} />
+      { socials.map((social: Social, index: number) => (
+        <HeaderSocialIcon key={ index }
+                          url={ social.url } />
+      )) }
     </>
-  )
-}
+  );
+};
 
-export default HeaderSocialIcons
+export default HeaderSocialIcons;

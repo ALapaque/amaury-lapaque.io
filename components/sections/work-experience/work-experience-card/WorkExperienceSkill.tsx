@@ -1,8 +1,15 @@
-const WorkExperienceSkill = () => {
+import { urlFor } from '../../../../sanity';
+import { Skill } from '../../../../typing';
+
+interface Props {
+  skill: Skill;
+}
+
+const WorkExperienceSkill = ({ skill }: Props) => {
   return (
-    <img className={ 'h-10 w-10 rounded-full' }
-         src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/1024px-Typescript_logo_2020.svg.png"
-         alt="Typescript" />
+    <img className={ 'h-10 w-10 object-contain' }
+         src={ urlFor(skill.image) }
+         alt={ skill.title } />
   );
 };
 

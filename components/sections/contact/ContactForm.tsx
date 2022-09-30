@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
-import Contact from './index';
+import { useRecoilValue } from 'recoil';
+import { pageInfoSelector } from '../../../stores/data';
 
 interface ContactForm {
   firstname: string,
@@ -10,10 +11,15 @@ interface ContactForm {
 }
 
 const ContactForm = () => {
+  const pageInfo = useRecoilValue(pageInfoSelector);
   const { register, setValue, handleSubmit, formState: { errors } } = useForm<ContactForm>();
 
+  if (!pageInfo) {
+    return <></>;
+  }
+
   const onSubmit = handleSubmit((data: ContactForm) => {
-    window.location.href = `mailto:amaury.lapaque@gmail.com?subject=${ data.firstname } ${ data.lastname }&body=${ data.subject }`;
+    window.location.href = `mailto:${ pageInfo.email }?subject=${ data.firstname } ${ data.lastname }&body=${ data.subject }`;
   });
 
   return (

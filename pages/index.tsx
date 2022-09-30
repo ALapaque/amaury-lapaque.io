@@ -1,6 +1,7 @@
 import type { GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
+import { useSetRecoilState } from 'recoil';
 import Header from '../components/header';
 import ScrollToTopButton from '../components/ScrollToTopButton';
 import About from '../components/sections/about';
@@ -9,7 +10,8 @@ import Hero from '../components/sections/hero';
 import Projects from '../components/sections/projects';
 import Skills from '../components/sections/skills';
 import WorkExperience from '../components/sections/work-experience';
-import { Expererience, PageInfo, Project, Skill, Social } from '../typing';
+import { DataState } from '../stores/data';
+import { Experience, PageInfo, Project, Skill, Social } from '../typing';
 import { fetchExperiences } from '../utils/fetchExperiences';
 import { fetchPageInfo } from '../utils/fetchPageInfo';
 import { fetchProjects } from '../utils/fetchProjects';
@@ -18,14 +20,25 @@ import { fetchSocials } from '../utils/fetchSocials';
 
 type Props = {
   pageInfo: PageInfo,
-  experiences: Expererience[],
+  experiences: Experience[],
   skills: Skill[],
   projects: Project[],
   socials: Social[],
 }
 
 const Home: NextPage<Props> = ({ pageInfo, experiences, skills, projects, socials }: Props) => {
+  const setDataState = useSetRecoilState(DataState);
   const scrollableContainerRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    setDataState({
+      pageInfo,
+      experiences,
+      skills,
+      projects,
+      socials
+    });
+  }, [ setDataState ]);
 
   return (
     <div ref={ scrollableContainerRef }
@@ -63,7 +76,7 @@ export default Home;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const pageInfo: PageInfo = await fetchPageInfo();
-  const experiences: Expererience[] = await fetchExperiences();
+  const experiences: Experience[] = await fetchExperiences();
   const skills: Skill[] = await fetchSkills();
   const projects: Project[] = await fetchProjects();
   const socials: Social[] = await fetchSocials();

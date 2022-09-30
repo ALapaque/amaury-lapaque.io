@@ -1,14 +1,15 @@
-import AboutDescriptionTitle from './AboutDescriptionTitle';
+import { useRecoilValue } from 'recoil';
+import { pageInfoSelector } from '../../../stores/data';
 
 const AboutDescriptionParagraph = () => {
+  const pageInfo = useRecoilValue(pageInfoSelector);
+
+  if (!pageInfo) {
+    return <></>;
+  }
+
   return (
-    <p className={'text-base'}>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque cupiditate exercitationem laudantium perferendis
-      ut. Ab, autem consectetur culpa exercitationem expedita nemo nobis non officiis sequi vel vitae voluptatum!
-      Consequatur, maiores?Consectetur consequuntur cum doloremque exercitationem incidunt ipsum laudantium officiis
-      quia saepe voluptatibus? Accusantium aliquid at doloribus id illo illum incidunt inventore magnam, molestiae neque
-      obcaecati placeat porro, quas, voluptatem voluptates.
-    </p>
+    <p className={ 'text-base' }>{ pageInfo.backgroundInformation }</p>
   );
 };
 

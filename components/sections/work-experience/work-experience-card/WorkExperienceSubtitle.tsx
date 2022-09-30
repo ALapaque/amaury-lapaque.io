@@ -1,7 +1,13 @@
-const WorkExperienceSubtitle = () => {
-  return (
-    <p className={'text-lg text-center md:text-left pb-2'}>Amaury lapaque</p>
-  )
+import { Experience } from '../../../../typing';
+
+interface Props {
+  experience: Experience;
 }
 
-export default WorkExperienceSubtitle
+const WorkExperienceSubtitle = ({ experience }: Props) => {
+  return (
+    <p className={ 'text-lg text-center md:text-left pb-2' }>{ experience.company }</p>
+  );
+};
+
+export default WorkExperienceSubtitle;

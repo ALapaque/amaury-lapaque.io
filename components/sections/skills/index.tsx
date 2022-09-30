@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import SkillsList from './SkillsList';
-import SkillsSubtitle from './SkillsSubtitle';
 import SkillsTitle from './SkillsTitle';
 
 const Skills = () => {
@@ -25,7 +24,6 @@ const Skills = () => {
                   ' mx-auto' +
                   ' items-center' }>
       <SkillsTitle />
-      <SkillsSubtitle />
 
       <SkillsList />
     </motion.section>

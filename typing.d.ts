@@ -31,7 +31,7 @@ export interface Skill extends SanityBody<'skill'> {
   title: string,
 }
 
-export interface Expererience extends SanityBody<'eexperience'> {
+export interface Experience extends SanityBody<'experience'> {
   company: string,
   companyImage: Image,
   dateStarted: Date,

@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import SkillsTitle from '../skills/SkillsTitle';
 import ProjectList from './ProjectList';
 import ProjectsTitle from './ProjectsTitle';
 

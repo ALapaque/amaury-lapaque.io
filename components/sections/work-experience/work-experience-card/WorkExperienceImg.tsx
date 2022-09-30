@@ -1,6 +1,12 @@
 import { motion } from 'framer-motion';
+import { urlFor } from '../../../../sanity';
+import { Experience } from '../../../../typing';
 
-const WorkExperienceImg = () => {
+interface Props {
+  experience: Experience;
+}
+
+const WorkExperienceImg = ({ experience }: Props) => {
   return (
     <motion.img
       initial={ {
@@ -13,7 +19,7 @@ const WorkExperienceImg = () => {
       } }
       transition={ { duration: 1 } }
       viewport={ { once: true } }
-      src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Amazon_icon.svg/2500px-Amazon_icon.svg.png"
+      src={ urlFor(experience.companyImage) }
       alt={ 'img' }
       className={ 'max-w-[20vh] max-h-[10vh]' } />
   )
