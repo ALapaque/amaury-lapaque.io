@@ -69,6 +69,10 @@ const Home: NextPage<Props> = ({ pageInfo, experiences, skills, projects, social
 
 export default Home;
 
+/**
+ * SSR
+ * @returns {Promise<{props: {skills: any, projects: any, pageInfo: any, socials: any, experiences: any}}>}
+ */
 export async function getServerSideProps() {
   const baseUrl: string = process.env.NEXT_PUBLIC_BASE_URl as string;
   const promises = await Promise.all([
