@@ -12,11 +12,6 @@ import Skills from '../components/sections/skills';
 import WorkExperience from '../components/sections/work-experience';
 import { DataState } from '../stores/data';
 import { Experience, PageInfo, Project, Skill, Social } from '../typing';
-import { fetchExperiences } from '../utils/fetchExperiences';
-import { fetchPageInfo } from '../utils/fetchPageInfo';
-import { fetchProjects } from '../utils/fetchProjects';
-import { fetchSkills } from '../utils/fetchSkills';
-import { fetchSocials } from '../utils/fetchSocials';
 
 type Props = {
   pageInfo: PageInfo,
@@ -38,7 +33,7 @@ const Home: NextPage<Props> = ({ pageInfo, experiences, skills, projects, social
       projects,
       socials
     });
-  }, [ setDataState, pageInfo, experiences, skills, projects, socials ]);
+  }, []);
 
   return (
     <div ref={ scrollableContainerRef }
@@ -75,11 +70,15 @@ const Home: NextPage<Props> = ({ pageInfo, experiences, skills, projects, social
 export default Home;
 
 export async function getStaticProps() {
-  const pageInfo: PageInfo = await fetchPageInfo();
-  const experiences: Experience[] = await fetchExperiences();
-  const skills: Skill[] = await fetchSkills();
-  const projects: Project[] = await fetchProjects();
-  const socials: Social[] = await fetchSocials();
+  const baseUrl: string = process.env.NEXT_PUBLIC_BASE_URl as string;
+  const promises = await Promise.all([
+    fetch(`${ baseUrl }/api/getWorkExperiences`),
+    fetch(`${ baseUrl }/api/getPageInformations`),
+    fetch(`${ baseUrl }/api/getProjectList`),
+    fetch(`${ baseUrl }/api/getTechnologies`),
+    fetch(`${ baseUrl }/api/getSocialLinks`)
+  ]);
+  const [ { experiences }, { pageInfo }, { projects }, { skills }, { socials } ] = await Promise.all(promises.map((promise) => promise.json()));
 
   return {
     props: {
