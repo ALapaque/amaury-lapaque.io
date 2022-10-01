@@ -1,4 +1,4 @@
-import type { GetServerSideProps, NextPage } from 'next';
+import type { NextPage } from 'next';
 import Head from 'next/head';
 import { useEffect, useRef } from 'react';
 import { useSetRecoilState } from 'recoil';
@@ -74,7 +74,7 @@ const Home: NextPage<Props> = ({ pageInfo, experiences, skills, projects, social
 
 export default Home;
 
-export const getServerSideProps: GetServerSideProps<Props> = async () => {
+export const getServerSideProps = async () => {
   const [ experiences, projects, pageInfo, skills, socials ] = await Promise.all([
     fetchExperiences(),
     fetchProjects(),

@@ -12,13 +12,13 @@ export const getProjectsQuery = (): string => {
   );
 };
 
-export const fetchProjects = async () => {
+export const fetchProjects = async (): Promise<Project[]> => {
   const res = await fetch(`${ process.env.NEXT_PUBLIC_BASE_URL }/api/fetchProjects`).catch(() => {
     return;
   });
 
   if (!res) {
-    return;
+    return Promise.resolve([]);
   }
 
   const data = await res.json();

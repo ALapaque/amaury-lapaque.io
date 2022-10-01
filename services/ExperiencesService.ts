@@ -10,13 +10,13 @@ export const getExperiencesQuery = (): string => {
     `);
 };
 
-export const fetchExperiences = async () => {
+export const fetchExperiences = async (): Promise<Experience[]> => {
   const res = await fetch(`${ process.env.NEXT_PUBLIC_BASE_URL }/api/fetchExperiences`).catch(() => {
     return;
   });
 
   if (!res) {
-    return;
+    return Promise.resolve([]);
   }
 
   const data = await res.json();

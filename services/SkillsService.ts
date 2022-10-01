@@ -5,13 +5,13 @@ export const getSkillsQuery = (): string => {
   return (groq`*[_type == 'skill']`);
 };
 
-export const fetchSkills = async () => {
+export const fetchSkills = async (): Promise<Skill[]> => {
   const res = await fetch(`${ process.env.NEXT_PUBLIC_BASE_URL }/api/fetchSkills`).catch(() => {
     return;
   });
 
   if (!res) {
-    return;
+    return Promise.resolve([]);
   }
 
   const data = await res.json();

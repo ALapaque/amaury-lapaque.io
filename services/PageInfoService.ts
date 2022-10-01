@@ -5,13 +5,13 @@ export const getPageInfoQuery = (): string => {
   return (groq`*[_type == 'pageInfo'][0]`);
 };
 
-export const fetchPageInfo = async () => {
+export const fetchPageInfo = async (): Promise<{}> => {
   const res = await fetch(`${ process.env.NEXT_PUBLIC_BASE_URL }/api/fetchPageInfo`).catch(() => {
     return;
   });
 
   if (!res) {
-    return;
+    return Promise.resolve({});
   }
 
   const data = await res.json();

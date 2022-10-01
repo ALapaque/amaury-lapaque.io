@@ -2,11 +2,11 @@ import { atom, selector } from 'recoil';
 import { Experience, PageInfo, Project, Skill, Social } from '../typing';
 
 export default interface DataStateInterface {
-  pageInfo: PageInfo,
-  experiences: Experience[],
-  skills: Skill[],
-  projects: Project[],
-  socials: Social[],
+  pageInfo?: PageInfo,
+  experiences?: Experience[],
+  skills?: Skill[],
+  projects?: Project[],
+  socials?: Social[],
 }
 
 export const DataState = atom<DataStateInterface | null>({
