@@ -7,7 +7,7 @@ interface Props {
 
 const SkillsListItem = ({ skill }: Props) => {
   return (
-    <>
+    <div className={ 'group relative flex' }>
       <img src={ urlFor(skill.image) }
            alt={ `${ skill.title }-img` }
            className={ 'object-contain w-24 h-24 xl:w-32 xl:h-32 filter' +
@@ -19,7 +19,7 @@ const SkillsListItem = ({ skill }: Props) => {
           <p className={ 'text-sm font-bold text-[rgb(32,32,32)] opacity-100' }>{ skill.title }</p>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
