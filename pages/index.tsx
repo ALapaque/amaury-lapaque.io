@@ -1,5 +1,4 @@
-import type { NextPage } from 'next';
-import { groq } from 'next-sanity';
+import type { GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
 import { useEffect, useRef } from 'react';
 import { useSetRecoilState } from 'recoil';
@@ -11,7 +10,11 @@ import Hero from '../components/sections/hero';
 import Projects from '../components/sections/projects';
 import Skills from '../components/sections/skills';
 import WorkExperience from '../components/sections/work-experience';
-import { sanityClient } from '../sanity';
+import { fetchExperiences } from '../services/ExperiencesService';
+import { fetchPageInfo } from '../services/PageInfoService';
+import { fetchProjects } from '../services/ProjectsService';
+import { fetchSkills } from '../services/SkillsService';
+import { fetchSocials } from '../services/SocialsService';
 import { DataState } from '../stores/data';
 import { Experience, PageInfo, Project, Skill, Social } from '../typing';
 
@@ -28,32 +31,14 @@ const Home: NextPage<Props> = ({ pageInfo, experiences, skills, projects, social
   const scrollableContainerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    Promise.all([
-      sanityClient.fetch(groq`
-      *[_type == 'experience'] {
-        ...,
-        technologies[]->
-      }
-    `),
-      sanityClient.fetch(groq`*[_type == 'pageInfo'][0]`),
-      sanityClient.fetch(groq`
-      *[_type == 'project'] {
-        ...,
-        technologies[]->
-      }
-    `),
-      sanityClient.fetch(groq`*[_type == 'skill']`),
-      sanityClient.fetch(groq`*[_type == 'social']`)
-    ]).then(([ experiences, pageInfo, projects, skills, social ]) => {
-      setDataState({
-        pageInfo,
-        experiences,
-        skills,
-        projects,
-        socials
-      });
+    setDataState({
+      pageInfo,
+      experiences,
+      skills,
+      projects,
+      socials
     });
-  }, []);
+  }, [ setDataState, pageInfo, experiences, skills, projects, socials ]);
 
   return (
     <div ref={ scrollableContainerRef }
@@ -88,3 +73,23 @@ const Home: NextPage<Props> = ({ pageInfo, experiences, skills, projects, social
 };
 
 export default Home;
+
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const [ experiences, projects, pageInfo, skills, socials ] = await Promise.all([
+    fetchExperiences(),
+    fetchProjects(),
+    fetchPageInfo(),
+    fetchSkills(),
+    fetchSocials()
+  ]);
+
+  return {
+    props: {
+      pageInfo,
+      experiences,
+      skills,
+      projects,
+      socials
+    }
+  };
+};
