@@ -11,7 +11,7 @@ export const getExperiencesQuery = (): string => {
 };
 
 export const fetchExperiences = async () => {
-  const res = await fetch(`http://localhost:3000/api/fetchExperiences`);
+  const res = await fetch(`${ location.origin }/api/fetchExperiences`);
   const data = await res.json();
   const experiences: Experience[] = data.experiences;
 
