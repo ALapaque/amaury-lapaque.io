@@ -47,7 +47,7 @@ const Home: NextPage<Props> = ({ pageInfo, experiences, skills, projects, social
                      ' scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80 scrollbar-thin' +
                      ' scrollbar-thumb-rounded-full hover:scrollbar-thumb-[#F7AB0A]/60 ' }>
       <Head>
-        <title>Amaury Lapaque</title>
+        <title>{ pageInfo.name }</title>
       </Head>
 
       <Header />
