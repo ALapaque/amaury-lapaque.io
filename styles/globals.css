@@ -8,7 +8,7 @@ html {
 
 @layer components {
 	.hero-btn {
-		@apply px-6 py-2 border border-[rgb(46,46,46)] text-[#F7AB0A]/60 rounded-full uppercase text-xs tracking-widest transition-all hover:border-[#F7AB0A]/40 hover:text-[#F7AB0A]/40
+		@apply px-6 py-2 border border-transparent text-[#F7AB0A]/60 rounded-full uppercase text-xs tracking-widest transition-all hover:border-[#F7AB0A]/40 hover:text-[#F7AB0A]/40
 	}
 
 	div.hero-title span:first-child {
