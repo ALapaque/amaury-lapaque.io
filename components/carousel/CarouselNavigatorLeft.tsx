@@ -7,8 +7,9 @@ interface Props {
 
 const CarouselNavigatorLeft = ({ subElementId, handleOnClick }: Props) => {
   return (
-    <div className={ 'absolute left-10 w-10 h-10 z-50 cursor-pointer transition-all ease-in-out' +
-                     ' hover:animate-pulse hover:bg-transparent hover:text-[#F7AB0A]' }
+    <div className={ 'absolute left-12 w-10 h-10 z-50 cursor-pointer transition-all ease-in-out' +
+                     ' hover:animate-pulse hover:bg-transparent hover:text-[#F7AB0A]' +
+                     ' md:left-36' }
          onClick={ handleOnClick }>
       <ChevronLeftIcon />
     </div>
