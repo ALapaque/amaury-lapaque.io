@@ -51,14 +51,12 @@ const CarouselNavigator = ({ minElements, maxElements, subElementId }: Props) =>
     <>
       { index !== 0 && (
         <CarouselNavigatorLeft
-          subElementId={ subElementId }
           handleOnClick={ () => handleScrollIntoView('decrease') }
           animate={ index === (maxElements - 1) }
         />
       ) }
       { index !== (maxElements - 1) && (
         <CarouselNavigatorRight
-          subElementId={ subElementId }
           handleOnClick={ () => handleScrollIntoView('increase') }
           animate={ index === 0 }
         />
