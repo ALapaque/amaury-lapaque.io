@@ -1,4 +1,6 @@
-interface SanityBody<T> {
+type SanityTypes = string | 'image' | 'pageInfo' | 'skill' | 'experience' | 'projet' | 'social'
+
+interface SanityBody<T = SanityTypes> {
   _createdAt: Date,
   _id: string,
   _rev: string,

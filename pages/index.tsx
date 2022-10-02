@@ -10,13 +10,9 @@ import Hero from '../components/sections/hero';
 import Projects from '../components/sections/projects';
 import Skills from '../components/sections/skills';
 import WorkExperience from '../components/sections/work-experience';
-import { fetchExperiences } from '../services/ExperiencesService';
-import { fetchPageInfo } from '../services/PageInfoService';
-import { fetchProjects } from '../services/ProjectsService';
-import { fetchSkills } from '../services/SkillsService';
-import { fetchSocials } from '../services/SocialsService';
+import SanityService from '../services/SanityService';
 import { DataState } from '../stores/data';
-import { Experience, PageInfo, Project, Skill, Social } from '../typing';
+import { Experience, PageInfo, Project, SanityBody, Skill, Social } from '../typing';
 
 type Props = {
   pageInfo: PageInfo,
@@ -75,21 +71,17 @@ const Home: NextPage<Props> = ({ pageInfo, experiences, skills, projects, social
 export default Home;
 
 export const getServerSideProps = async () => {
-  const [ experiences, projects, pageInfo, skills, socials ] = await Promise.all([
-    fetchExperiences(),
-    fetchProjects(),
-    fetchPageInfo(),
-    fetchSkills(),
-    fetchSocials()
-  ]);
+  const sanityService: SanityService = new SanityService();
+  const data: SanityBody[] = await sanityService.fetchSanityData();
+  const props: Props = {
+    experiences: data.filter((body: SanityBody) => body._type === 'experience') as Experience[],
+    projects: data.filter((body: SanityBody) => body._type === 'project') as Project[],
+    pageInfo: data.filter((body: SanityBody) => body._type === 'pageInfo')[0] as PageInfo,
+    skills: data.filter((body: SanityBody) => body._type === 'skill') as Skill[],
+    socials: data.filter((body: SanityBody) => body._type === 'social') as Social[]
+  };
 
   return {
-    props: {
-      pageInfo,
-      experiences,
-      skills,
-      projects,
-      socials
-    }
+    props
   };
 };
