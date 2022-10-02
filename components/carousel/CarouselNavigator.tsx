@@ -58,8 +58,8 @@ const CarouselNavigator = ({ minElements, maxElements, subElementId }: Props) =>
         handleOnClick={ () => handleScrollIntoView('increase') }
       />
 
-      <div className={ 'flex space-x-2 absolute bottom-5 z-20' +
-                       ' md:bottom-10' }>
+      <div className={ 'hidden space-x-2 absolute bottom-5 z-20' +
+                       ' md:flex md:bottom-10' }>
         { dots.map((element: any, elementIndex: number) => (
           <div
             onClick={ () => handleDotClick(elementIndex) }
