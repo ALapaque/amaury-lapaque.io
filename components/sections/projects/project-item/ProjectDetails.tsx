@@ -1,5 +1,5 @@
-import { Project, Skill } from '../../../../typing';
-import WorkExperienceSkill from '../../work-experience/work-experience/WorkExperienceSkill';
+import { Project } from '../../../../typing';
+import Skills from '../../../skills';
 
 interface Props {
   project: Project;
@@ -7,15 +7,11 @@ interface Props {
 
 const ProjectDetails = ({ project }: Props) => {
   return (
-    <div className={ 'space-y-10 px-0 md:px-10 max-w-6xl' }>
+    <div className={ 'flex flex-col items-center content-center space-y-5 justify-center px-0' +
+                     ' md:px-10 max-w-6xl' }>
       <h4 className={ 'text-4xl font-semibold text-center' }>{ project.title }</h4>
       <p className={ 'text-lg text-left' }>{ project.summary }</p>
-      <div className={ 'grid grid-cols-4 md:grid-cols-6 gap-2 justify-items-center' }>
-        { project.technologies.map((skill: Skill, index: number) => (
-          <WorkExperienceSkill key={ index }
-                               skill={ skill } />
-        )) }
-      </div>
+      <Skills skills={ project.technologies } />
     </div>
   );
 };

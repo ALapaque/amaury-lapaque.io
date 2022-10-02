@@ -1,17 +1,19 @@
 import { ChevronLeftIcon } from '@heroicons/react/24/solid';
 
 interface Props {
-  subElementId: string;
-  handleOnClick: () => void;
+  handleOnClick: () => void,
+  animate: boolean,
 }
 
-const CarouselNavigatorLeft = ({ subElementId, handleOnClick }: Props) => {
+const CarouselNavigatorLeft = ({ animate, handleOnClick }: Props) => {
   return (
-    <div className={ 'absolute left-12 w-10 h-10 z-50 cursor-pointer transition-all ease-in-out' +
+    <div className={ 'h-screen absolute left-0 px-12 flex items-center z-50 cursor-pointer' +
+                     ' transition-all ease-in-out' +
                      ' hover:animate-pulse hover:bg-transparent hover:text-[#F7AB0A]' +
-                     ' md:left-36' }
+                     ' md:px-36' }
          onClick={ handleOnClick }>
-      <ChevronLeftIcon />
+      <ChevronLeftIcon className={ 'carousel-arrow__left w-10 h-10' +
+                                   `${ animate ? ' animate' : '' }` } />
     </div>
   );
 };
