@@ -28,12 +28,12 @@ html {
 	}
 
 	svg.carousel-arrow__left.animate {
-		@apply text-[#F7AB0A]/60;
+		@apply text-[#F7AB0A];
 		animation: tilt-right 1s infinite;
 	}
 
 	svg.carousel-arrow__right.animate {
-		@apply text-[#F7AB0A]/60;
+		@apply text-[#F7AB0A];
 		animation: tilt-right 1s infinite;
 	}
 
