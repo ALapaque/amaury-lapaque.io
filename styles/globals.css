@@ -26,6 +26,10 @@ html {
 	textarea {
 		resize: none;
 	}
+
+	div.carousel-dot.active {
+		@apply bg-[#F7AB0A];
+	}
 }
 
 /* XS */

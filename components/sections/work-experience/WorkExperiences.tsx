@@ -12,7 +12,8 @@ const WorkExperiences = () => {
   }
 
   return (
-    <Carousel subElementId={ 'experience-item' }>
+    <Carousel subElementId={ 'experience-item-' }
+              maxElements={ experiences.length }>
       { experiences.map((experience: Experience, index: number) => (
         <WorkExperience
           key={ index }

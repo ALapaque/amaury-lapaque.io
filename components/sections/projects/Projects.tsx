@@ -12,7 +12,8 @@ const Projects = () => {
   }
 
   return (
-    <Carousel subElementId={ 'project-item' }>
+    <Carousel subElementId={ 'project-item-' }
+              maxElements={ projects.length }>
       { projects.map((project: Project, index: number) => (
         <ProjectItem key={ index }
                      id={ `project-item-${ index }` }
