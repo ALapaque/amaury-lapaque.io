@@ -3,7 +3,7 @@ import ContactForm from './ContactForm';
 import ContactInformation from './ContactInformation';
 import ContactTitle from './ContactTitle';
 
-const Contact = () => {
+const ContactSection = () => {
   return (
     <motion.section
       id={ 'contact' }
@@ -20,4 +20,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default ContactSection;

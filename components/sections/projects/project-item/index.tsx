@@ -5,11 +5,13 @@ import ProjectItemImg from './ProjectItemImg';
 
 interface Props {
   project: Project;
+  id: string;
 }
 
-const ProjectItem = ({ project }: Props) => {
+const ProjectItem = ({ project, id }: Props) => {
   return (
     <motion.article
+      id={ id }
       initial={ {
         opacity: 0
       } }

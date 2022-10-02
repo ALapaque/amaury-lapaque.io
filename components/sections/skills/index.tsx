@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import SkillsList from './SkillsList';
 import SkillsTitle from './SkillsTitle';
 
-const Skills = () => {
+const SkillSection = () => {
   return (
     <motion.section
       id={ 'skills' }
@@ -30,4 +30,4 @@ const Skills = () => {
   );
 };
 
-export default Skills;
+export default SkillSection;

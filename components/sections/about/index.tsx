@@ -3,12 +3,12 @@ import AboutDescription from './AboutDescription';
 import AboutImg from './AboutImg';
 import AboutTitle from './AboutTitle';
 
-const About = () => {
+const AboutSection = () => {
   return (
     <motion.section
-      initial={{ opacity: 0}}
-      whileInView={{ opacity: 1}}
-      transition={{ duration: 1.5}}
+      initial={ { opacity: 0 } }
+      whileInView={ { opacity: 1 } }
+      transition={ { duration: 1.5 } }
       id={ 'about' }
       className={ 'relative' +
                   ' flex' +
@@ -34,4 +34,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default AboutSection;

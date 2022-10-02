@@ -24,7 +24,7 @@ const ProjectItemImg = ({ project: { image, title, linkToBuild } }: Props) => {
         viewport={ { once: true } }
         src={ urlFor(image) }
         alt={ `${ title }-img` }
-        className={ 'max-w-[20vh] max-h-[20vh]' } />
+        className={ 'max-w-[20vh] max-h-[20vh] md:max-w-[50vh] md:max-h-[30vh]' } />
     </a>
   );
 };

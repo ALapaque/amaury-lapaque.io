@@ -1,9 +1,10 @@
 import { useRecoilValue } from 'recoil';
 import { projectsSelector } from '../../../stores/data';
 import { Project } from '../../../typing';
+import Carousel from '../../carousel';
 import ProjectItem from './project-item';
 
-const ProjectList = () => {
+const Projects = () => {
   const projects = useRecoilValue(projectsSelector);
 
   if (!projects) {
@@ -11,15 +12,14 @@ const ProjectList = () => {
   }
 
   return (
-    <div className={ 'relative w-full h-screen flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20' +
-                     ' scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80 scrollbar-thin' +
-                     ' scrollbar-thumb-rounded-full hover:scrollbar-thumb-[#F7AB0A]/60 ' }>
+    <Carousel subElementId={ 'project-item' }>
       { projects.map((project: Project, index: number) => (
         <ProjectItem key={ index }
+                     id={ `project-item-${ index }` }
                      project={ project } />
       )) }
-    </div>
+    </Carousel>
   );
 };
 
-export default ProjectList;
+export default Projects;

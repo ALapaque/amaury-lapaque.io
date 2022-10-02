@@ -10,7 +10,7 @@ const SkillsListItem = ({ skill }: Props) => {
     <div className={ 'group relative flex' }>
       <img src={ urlFor(skill.image) }
            alt={ `${ skill.title }-img` }
-           className={ 'object-contain w-24 h-24 xl:w-32 xl:h-32 filter' +
+           className={ 'object-contain p-2 w-24 h-24 xl:w-32 xl:h-32 filter' +
                        ' group-hover:grayscale duration-300 ease-in-out' } />
 
       <div className={ 'absolute opacity-0 group-hover:opacity-80 transition duration-300 ease-in-out rounded' +

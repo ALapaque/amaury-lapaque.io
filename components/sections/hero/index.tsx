@@ -5,7 +5,7 @@ import HeroImg from './HeroImg';
 import HeroSubtitle from './HeroSubtitle';
 import HeroTitle from './HeroTitle';
 
-const Hero = () => {
+const HeroSection = () => {
   return (
     <motion.section
       id={ 'hero' }
@@ -33,4 +33,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default HeroSection;

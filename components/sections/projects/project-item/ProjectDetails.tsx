@@ -1,5 +1,5 @@
 import { Project, Skill } from '../../../../typing';
-import WorkExperienceSkill from '../../work-experience/work-experience-card/WorkExperienceSkill';
+import WorkExperienceSkill from '../../work-experience/work-experience/WorkExperienceSkill';
 
 interface Props {
   project: Project;

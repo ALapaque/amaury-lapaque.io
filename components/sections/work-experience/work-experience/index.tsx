@@ -8,9 +8,10 @@ import WorkExperienceTitle from './WorkExperienceTitle';
 
 interface Props {
   experience: Experience;
+  id: string;
 }
 
-const WorkExperienceCard = ({ experience }: Props) => {
+const WorkExperience = ({ experience, id }: Props) => {
   return (
     <motion.article
       initial={ {
@@ -20,6 +21,7 @@ const WorkExperienceCard = ({ experience }: Props) => {
         opacity: 1
       } }
       transition={ { duration: 1 } }
+      id={ id }
       className={ 'w-screen h-screen flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center' +
                   ' p-20' +
                   ' md:p-44' }>
@@ -35,4 +37,4 @@ const WorkExperienceCard = ({ experience }: Props) => {
   );
 };
 
-export default WorkExperienceCard;
+export default WorkExperience;

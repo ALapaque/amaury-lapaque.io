@@ -4,12 +4,12 @@ import { useEffect, useRef } from 'react';
 import { useSetRecoilState } from 'recoil';
 import Header from '../components/header';
 import ScrollToTopButton from '../components/ScrollToTopButton';
-import About from '../components/sections/about';
-import Contact from '../components/sections/contact';
-import Hero from '../components/sections/hero';
-import Projects from '../components/sections/projects';
-import Skills from '../components/sections/skills';
-import WorkExperience from '../components/sections/work-experience';
+import AboutSection from '../components/sections/about';
+import ContactSection from '../components/sections/contact';
+import HeroSection from '../components/sections/hero';
+import ProjectSection from '../components/sections/projects';
+import SkillSection from '../components/sections/skills';
+import WorkExperienceSection from '../components/sections/work-experience';
 import SanityService from '../services/SanityService';
 import { DataState } from '../stores/data';
 import { Experience, PageInfo, Project, SanityBody, Skill, Social } from '../typing';
@@ -48,20 +48,20 @@ const Home: NextPage<Props> = ({ pageInfo, experiences, skills, projects, social
 
       <Header />
 
-      <Hero />
+      <HeroSection />
       {/* About section */ }
-      <About />
+      <AboutSection />
       {/* Experience section */ }
-      <WorkExperience />
+      <WorkExperienceSection />
 
       {/* Skill section */ }
-      <Skills />
+      <SkillSection />
 
       {/* Projects section */ }
-      <Projects />
+      <ProjectSection />
 
       {/* Contact me */ }
-      <Contact />
+      <ContactSection />
 
       <ScrollToTopButton scrollableContainerRef={ scrollableContainerRef } />
     </div>

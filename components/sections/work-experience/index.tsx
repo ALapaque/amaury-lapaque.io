@@ -1,10 +1,8 @@
 import { motion } from 'framer-motion';
-import ProjectList from '../projects/ProjectList';
-import ProjectsTitle from '../projects/ProjectsTitle';
-import WorkExperienceCarousel from './WorkExperienceCarousel';
+import WorkExperiences from './WorkExperiences';
 import WorkExperienceSectionTitle from './WorkExperienceSectionTitle';
 
-const WorkExperience = () => {
+const WorkExperienceSection = () => {
   return (
     <motion.section
       id={ 'experiences' }
@@ -15,7 +13,7 @@ const WorkExperience = () => {
                   ' justify-evenly mx-auto items-center z-0' }>
       <WorkExperienceSectionTitle />
 
-      <WorkExperienceCarousel />
+      <WorkExperiences />
 
       <motion.div
         initial={ { opacity: 0, top: '0' } }
@@ -26,4 +24,4 @@ const WorkExperience = () => {
   );
 };
 
-export default WorkExperience;
+export default WorkExperienceSection;

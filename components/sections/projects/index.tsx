@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
-import ProjectList from './ProjectList';
+import Projects from './Projects';
 import ProjectsTitle from './ProjectsTitle';
 
-const Projects = () => {
+const ProjectSection = () => {
   return (
     <motion.section
       id={ 'projects' }
@@ -13,7 +13,7 @@ const Projects = () => {
                   ' justify-evenly mx-auto items-center z-0' }>
       <ProjectsTitle />
 
-      <ProjectList />
+      <Projects />
 
       <motion.div
         initial={ { opacity: 0, top: '0' } }
@@ -24,4 +24,4 @@ const Projects = () => {
   );
 };
 
-export default Projects;
+export default ProjectSection;
