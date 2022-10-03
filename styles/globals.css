@@ -69,9 +69,9 @@ html {
 
 /* XS */
 @media only screen and (min-width: 0px) and (max-width: 599.95px) {
-	html {
-		font-size: 10px !important;
-	}
+  html {
+    font-size: 10px !important;
+  }
 }
 
 /* SM */
@@ -84,14 +84,14 @@ html {
 /* MD */
 @media only screen and (min-width: 900px) and (max-width: 1199.95px) {
   html {
-    font-size: 14px !important;
+    font-size: 12px !important;
   }
 }
 
 /* LG */
 @media only screen and (min-width: 1200px) and (max-width: 1535.95px) {
   html {
-    font-size: 16px !important;
+    font-size: 12px !important;
   }
 }
 
