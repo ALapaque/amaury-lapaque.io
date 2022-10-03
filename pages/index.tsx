@@ -56,8 +56,6 @@ const Home: NextPage<Props> = ({ pageInfo, experiences, skills, projects, social
 
       {/* Contact me */ }
       <ContactSection />
-
-      <ScrollToTopButton scrollableContainerRef={ scrollableContainerRef } />
     </>
   );
 };
