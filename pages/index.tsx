@@ -3,7 +3,6 @@ import Head from 'next/head';
 import { useEffect, useRef } from 'react';
 import { useSetRecoilState } from 'recoil';
 import Header from '../components/header';
-import ScrollToTopButton from '../components/ScrollToTopButton';
 import AboutSection from '../components/sections/about';
 import ContactSection from '../components/sections/contact';
 import HeroSection from '../components/sections/hero';
@@ -24,7 +23,6 @@ type Props = {
 
 const Home: NextPage<Props> = ({ pageInfo, experiences, skills, projects, socials }: Props) => {
   const setDataState = useSetRecoilState(DataState);
-  const scrollableContainerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     setDataState({
@@ -37,11 +35,7 @@ const Home: NextPage<Props> = ({ pageInfo, experiences, skills, projects, social
   }, [ setDataState, pageInfo, experiences, skills, projects, socials ]);
 
   return (
-    <div ref={ scrollableContainerRef }
-         className={ 'bg-[rgb(46,46,46)] text-white h-screen snap-y snap-mandatory overflow-y-scroll' +
-                     ' overflow-x-hidden z-0' +
-                     ' scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80 scrollbar-thin' +
-                     ' scrollbar-thumb-rounded-full hover:scrollbar-thumb-[#F7AB0A]/60 ' }>
+    <>
       <Head>
         <title>{ pageInfo.name }</title>
       </Head>
@@ -64,7 +58,7 @@ const Home: NextPage<Props> = ({ pageInfo, experiences, skills, projects, social
       <ContactSection />
 
       <ScrollToTopButton scrollableContainerRef={ scrollableContainerRef } />
-    </div>
+    </>
   );
 };
 
