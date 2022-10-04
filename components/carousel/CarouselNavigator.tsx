@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import CarouselNavigatorLeft from './CarouselNavigatorLeft';
 import CarouselNavigatorRight from './CarouselNavigatorRight';
 
@@ -11,6 +11,10 @@ interface Props {
 const CarouselNavigator = ({ minElements, maxElements, subElementId }: Props) => {
   const [ index, setIndex ] = useState<number>(0);
   const dots = Array.apply(null, Array(maxElements));
+
+  const handleScroll = () => {
+
+  };
 
   const getDomElement = (domIndex: number): HTMLElement | null => {
     return document.getElementById(`${ subElementId }${ domIndex }`);
@@ -46,6 +50,14 @@ const CarouselNavigator = ({ minElements, maxElements, subElementId }: Props) =>
     htmlElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
     handleUpdateIndex(tempIndex);
   };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
     <>
