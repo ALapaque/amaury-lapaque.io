@@ -17,7 +17,7 @@ const useIntersectionObserver = (id: string, amountToObserve: number): [ number 
   useEffect(() => {
     observer$ = new IntersectionObserver(
       _handleIntersectionObserverEntries,
-      { root: null, rootMargin: '0px', threshold: 0.9 }
+      { root: null, rootMargin: '0px', threshold: 0.8 }
     );
 
     Array.apply(null, Array(amountToObserve)).forEach((value: unknown, index: number) => {
