@@ -1,5 +1,5 @@
 import { ReactNode, useEffect, useState } from 'react';
-import useInterceptionObserver from '../../hooks/useInterceptionObserver';
+import useIntersectionObserver from '../../hooks/useIntersectionObserver';
 import CarouselNavigator from './CarouselNavigator';
 
 interface Props {
@@ -11,7 +11,7 @@ interface Props {
 
 const Carousel = ({ minElements = 0, maxElements, children, subElementId }: Props) => {
   const [ index, setIndex ] = useState<number>(0);
-  const [ indexCurrentlyInView ] = useInterceptionObserver(subElementId, maxElements);
+  const [ indexCurrentlyInView ] = useIntersectionObserver(subElementId, maxElements);
 
   const handleUpdateIndex = (newIndex: number) => {
     setIndex(newIndex);

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-const useInterceptionObserver = (id: string, amountToObserve: number): [ number ] => {
+const useIntersectionObserver = (id: string, amountToObserve: number): [ number ] => {
   const [ indexVisible, setIndexVisible ] = useState<number>(0);
   let observer$: IntersectionObserver;
 
@@ -37,4 +37,4 @@ const useInterceptionObserver = (id: string, amountToObserve: number): [ number 
   return [ indexVisible ];
 };
 
-export default useInterceptionObserver;
+export default useIntersectionObserver;
