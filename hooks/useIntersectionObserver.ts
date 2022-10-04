@@ -15,7 +15,10 @@ const useIntersectionObserver = (id: string, amountToObserve: number): [ number 
   };
 
   useEffect(() => {
-    observer$ = new IntersectionObserver(_handleIntersectionObserverEntries, { threshold: 1 });
+    observer$ = new IntersectionObserver(
+      _handleIntersectionObserverEntries,
+      { root: null, rootMargin: '0px', threshold: 0.9 }
+    );
 
     Array.apply(null, Array(amountToObserve)).forEach((value: unknown, index: number) => {
       console.log('id to observe', `${ id }-${ index }`);
