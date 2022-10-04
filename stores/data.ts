@@ -15,7 +15,7 @@ export const DataState = atom<DataStateInterface | null>({
 });
 
 export const pageInfoSelector = selector({
-  key: 'pageInfoSelector',
+  key: 'PageInfoSelector',
   get: ({ get }): PageInfo | undefined => {
     const state = get<DataStateInterface | null>(DataState);
 
@@ -24,7 +24,7 @@ export const pageInfoSelector = selector({
 });
 
 export const experiencesSelector = selector({
-  key: 'experiencesSelector',
+  key: 'ExperiencesSelector',
   get: ({ get }): Experience[] | undefined => {
     const state = get<DataStateInterface | null>(DataState);
 
@@ -33,7 +33,7 @@ export const experiencesSelector = selector({
 });
 
 export const skillsSelector = selector({
-  key: 'skillsSelector',
+  key: 'SkillsSelector',
   get: ({ get }): Skill[] | undefined => {
     const state = get<DataStateInterface | null>(DataState);
 
@@ -42,7 +42,7 @@ export const skillsSelector = selector({
 });
 
 export const projectsSelector = selector({
-  key: 'projectsSelector',
+  key: 'ProjectsSelector',
   get: ({ get }): Project[] | undefined => {
     const state = get<DataStateInterface | null>(DataState);
 
@@ -51,7 +51,7 @@ export const projectsSelector = selector({
 });
 
 export const socialsSelector = selector({
-  key: 'socialsSelector',
+  key: 'SocialsSelector',
   get: ({ get }): Social[] | undefined => {
     const state = get<DataStateInterface | null>(DataState);
 

@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import SectionSplitter from '../SectionSplitter';
 import Projects from './Projects';
 import ProjectsTitle from './ProjectsTitle';
 
@@ -15,11 +16,7 @@ const ProjectSection = () => {
 
       <Projects />
 
-      <motion.div
-        initial={ { opacity: 0, top: '0' } }
-        whileInView={ { opacity: 1, top: '30%' } }
-        transition={ { duration: 1 } }
-        className={ 'w-full absolute top-[30%] bg-[#F7AB0A]/10 left-0 h-[500px] -skew-y-12' } />
+      <SectionSplitter />
     </motion.section>
   );
 };

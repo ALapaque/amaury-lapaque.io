@@ -21,7 +21,6 @@ const Carousel = ({ minElements = 0, maxElements, children, subElementId }: Prop
         subElementId={ subElementId }
         maxElements={ maxElements } />
     </>
-
   );
 };
 
