@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 const useInterceptionObserver = (id: string, amountToObserve: number): [ number ] => {
-  const [ indexVisible, setIndexVisible ] = useState<number>(-1);
+  const [ indexVisible, setIndexVisible ] = useState<number>(0);
   let observer$: IntersectionObserver;
 
   const _handleIntersectionObserverEntries = (entries: IntersectionObserverEntry[]) => {
