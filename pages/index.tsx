@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import { useSetRecoilState } from 'recoil';
 import Header from '../components/header';
 import AboutSection from '../components/sections/about';
@@ -9,9 +9,10 @@ import HeroSection from '../components/sections/hero';
 import ProjectSection from '../components/sections/projects';
 import SkillSection from '../components/sections/skills';
 import WorkExperienceSection from '../components/sections/work-experience';
+import useTheme from '../hooks/useTheme';
 import SanityService from '../services/SanityService';
 import { DataState } from '../stores/data';
-import { Experience, PageInfo, Project, SanityBody, Skill, Social } from '../typing';
+import { Experience, PageInfo, Project, SanityBody, Skill, Social, Theme } from '../typing';
 
 type Props = {
   pageInfo: PageInfo,
@@ -19,10 +20,13 @@ type Props = {
   skills: Skill[],
   projects: Project[],
   socials: Social[],
+  theme: Theme,
 }
 
-const Home: NextPage<Props> = ({ pageInfo, experiences, skills, projects, socials }: Props) => {
+const Home: NextPage<Props> = ({ pageInfo, experiences, skills, projects, socials, theme }: Props) => {
   const setDataState = useSetRecoilState(DataState);
+
+  useTheme(theme);
 
   useEffect(() => {
     setDataState({
@@ -70,7 +74,8 @@ export const getServerSideProps = async () => {
     projects: data.filter((body: SanityBody) => body._type === 'project') as Project[],
     pageInfo: data.filter((body: SanityBody) => body._type === 'pageInfo')[0] as PageInfo,
     skills: data.filter((body: SanityBody) => body._type === 'skill') as Skill[],
-    socials: data.filter((body: SanityBody) => body._type === 'social') as Social[]
+    socials: data.filter((body: SanityBody) => body._type === 'social') as Social[],
+    theme: data.filter((body: SanityBody) => body._type === 'theme')[0] as Theme
   };
 
   return {

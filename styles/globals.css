@@ -2,30 +2,55 @@
 @tailwind components;
 @tailwind utilities;
 
-
-html {
-	scroll-behavior: smooth;
-}
-
 @layer components {
+	:root {
+		--background: #3a3a3a;
+		--primary-base: 29, 224, 179;
+		--primary: rgb(var(--primary-base));
+		--primary-10: rgba(var(--primary-base), .1);
+		--primary-20: rgba(var(--primary-base), .2);
+		--primary-30: rgba(var(--primary-base), .3);
+		--primary-40: rgba(var(--primary-base), .4);
+		--primary-50: rgba(var(--primary-base), .5);
+		--primary-60: rgba(var(--primary-base), .6);
+		--primary-70: rgba(var(--primary-base), .7);
+		--primary-80: rgba(var(--primary-base), .8);
+		--primary-90: rgba(var(--primary-base), .9);
+	}
+
+	html {
+		scroll-behavior: smooth;
+	}
+
 	div#__next {
-		@apply h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80 scrollbar-thin scrollbar-thumb-rounded-full hover:scrollbar-thumb-[#F7AB0A]/60
+		@apply h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-primary/80 scrollbar-thin scrollbar-thumb-rounded-full hover:scrollbar-thumb-primary/60
 	}
 
 	.hero-btn {
-		@apply px-6 py-2 border border-transparent text-[#F7AB0A]/60 rounded-full uppercase text-xs tracking-widest transition-all hover:border-[#F7AB0A]/40 hover:text-[#F7AB0A]/40
+		@apply px-6 py-2 border border-transparent rounded-full uppercase text-xs tracking-widest transition-all;
+		color: var(--primary-60);
+	}
+
+	.hero-btn:hover {
+		color: var(--primary-40);
+		border-color: var(--primary-40);
 	}
 
 	div.hero-title span:first-child {
-		@apply text-[#F7AB0A]/60
+		color: var(--primary-60);
 	}
 
 	div.hero-title span:last-child {
-		@apply text-[#F7AB0A]/60
+		color: var(--primary-60);
 	}
 
 	.form-field {
-		@apply outline-none bg-slate-400/10 rounded-sm border-b-4 px-6 py-4 border-[#6b728075] text-gray-500 placeholder-gray-500 transition-all focus:border-[#F7AB0A]/40 focus:text-[#F7AB0A]/40
+		@apply outline-none bg-slate-400/10 border-[#a0aec0]/80 rounded-sm border-b-4 px-6 py-4 text-gray-500 placeholder-gray-500 transition-all;
+	}
+
+	.form-field:focus {
+		border-color: var(--primary-40);
+		color: var(--primary-40);
 	}
 
 	textarea {
@@ -33,18 +58,19 @@ html {
 	}
 
 	svg.carousel-arrow__left.animate {
-		@apply text-[#F7AB0A];
+		color: var(--primary);
 		animation: tilt-right 1s infinite;
 	}
 
 	svg.carousel-arrow__right.animate {
-		@apply text-[#F7AB0A];
+		color: var(--primary);
 		animation: tilt-right 1s infinite;
 	}
 
 	div.carousel-dot.active {
-		@apply bg-[#F7AB0A];
+		background-color: var(--primary);
 	}
+
 }
 
 
@@ -74,49 +100,49 @@ html {
 
 /* XS */
 @media only screen and (min-width: 0px) and (max-width: 599.95px) {
-  html {
-    font-size: 10px !important;
-  }
+	html {
+		font-size: 10px !important;
+	}
 }
 
 /* SM */
 @media only screen and (min-width: 600px) and (max-width: 899.95px) {
-  html {
-    font-size: 12px !important;
-  }
+	html {
+		font-size: 12px !important;
+	}
 }
 
 /* MD */
 @media only screen and (min-width: 900px) and (max-width: 1199.95px) {
-  html {
-    font-size: 12px !important;
-  }
+	html {
+		font-size: 12px !important;
+	}
 }
 
 /* LG */
 @media only screen and (min-width: 1200px) and (max-width: 1535.95px) {
-  html {
-    font-size: 12px !important;
-  }
+	html {
+		font-size: 12px !important;
+	}
 }
 
 /* XL */
 @media only screen and (min-width: 1536px) and (max-width: 2047.95px) {
-  html {
-    font-size: 16px !important;
-  }
+	html {
+		font-size: 16px !important;
+	}
 }
 
 /* 2k  screens */
 @media only screen and (min-width: 2048px) and (max-width: 3839.95px) {
-  html {
-    font-size: 20px !important;
-  }
+	html {
+		font-size: 20px !important;
+	}
 }
 
 /* 4k and + screens */
 @media only screen and (min-width: 3840px) {
-  html {
-    font-size: 24px !important;
-  }
+	html {
+		font-size: 24px !important;
+	}
 }

@@ -67,8 +67,8 @@ const CarouselNavigator = ({ actualIndex, onUpdateIndex, minElements, maxElement
         { dots.map((element: any, elementIndex: number) => (
           <div
             onClick={ () => handleDotClick(elementIndex) }
-            className={ 'carousel-dot h-5 w-5 bg-[#F7AB0A]/60 rounded-full' +
-                        ' hover:cursor-pointer hover:bg-[#F7AB0A]' +
+            className={ 'carousel-dot h-5 w-5 bg-primary/60 rounded-full' +
+                        ' hover:cursor-pointer hover:bg-primary' +
                         ` ${ actualIndex === elementIndex ? ' active' : ' h-4 w-4' }` }
             key={ elementIndex } />
         )) }

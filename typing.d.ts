@@ -1,4 +1,4 @@
-type SanityTypes = string | 'image' | 'pageInfo' | 'skill' | 'experience' | 'projet' | 'social'
+type SanityTypes = string | 'image' | 'pageInfo' | 'skill' | 'experience' | 'project' | 'social' | 'theme'
 
 interface SanityBody<T = SanityTypes> {
   _createdAt: Date,
@@ -55,4 +55,37 @@ export interface Project extends SanityBody<'project'> {
 export interface Social extends SanityBody<'social'> {
   title: string,
   url: string,
+}
+
+interface SanityColor extends SanityBody<'color'> {
+  hex: string,
+  alpha: number,
+  hsl: SanityHSL,
+  hsv: SanityHSV,
+  rgb: SanityRGBA,
+}
+
+interface SanityHSL extends SanityBody<'hslaColor'> {
+  h: number,
+  s: number,
+  l: number,
+  a: number,
+}
+
+interface SanityHSV extends SanityBody<'hsvaColor'> {
+  h: number,
+  s: number,
+  v: number,
+  a: number,
+}
+
+interface SanityRGBA extends SanityBody<'rgbaColor'> {
+  r: number,
+  g: number,
+  b: number,
+  a: number,
+}
+
+export interface Theme extends SanityBody<'theme'> {
+  primary: SanityColor,
 }

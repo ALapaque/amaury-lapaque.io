@@ -54,8 +54,8 @@ const ContactForm = () => {
                 rows={ 5 }
                 { ...register('subject', { required: true }) } />
 
-      <button className={ 'bg-[#F7AB0A] border border-[#F7AB0A] py-5 px-10 rounded-md text-[#2e2e2e]' +
-                          ' font-bold text-lg hover:bg-transparent hover:text-[#F7AB0A] transition-all ease-in-out' +
+      <button className={ 'bg-primary border border-primary py-5 px-10 rounded-md text-[#2e2e2e]' +
+                          ' font-bold text-lg hover:bg-transparent hover:text-primary transition-all ease-in-out' +
                           ' duration-500' }>
         Submit
       </button>

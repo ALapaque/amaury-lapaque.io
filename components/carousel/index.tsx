@@ -18,16 +18,14 @@ const Carousel = ({ minElements = 0, maxElements, children, subElementId }: Prop
   };
 
   useEffect(() => {
-    console.log('indexCurrentlyInView', indexCurrentlyInView);
-
     setIndex(indexCurrentlyInView);
   }, [ indexCurrentlyInView ]);
 
   return (
     <>
       <div className={ 'relative w-full h-screen flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20' +
-                       ' scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80 scrollbar-thin' +
-                       ' scrollbar-thumb-rounded-full hover:scrollbar-thumb-[#F7AB0A]/60 ' }>
+                       ' scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-primary/80 scrollbar-thin' +
+                       ' scrollbar-thumb-rounded-full hover:scrollbar-thumb-primary/60 ' }>
         { children }
       </div>
 

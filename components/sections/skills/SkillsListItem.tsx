@@ -14,7 +14,7 @@ const SkillsListItem = ({ skill }: Props) => {
                        ' group-hover:grayscale duration-300 ease-in-out' } />
 
       <div className={ 'absolute opacity-0 group-hover:opacity-80 transition duration-300 ease-in-out rounded' +
-                       ' group-hover:bg-[#F7AB0A] w-24 h-24 xl:w-32 xl:h-32' }>
+                       ' group-hover:bg-primary w-24 h-24 xl:w-32 xl:h-32' }>
         <div className={ 'flex items-center justify-center h-full' }>
           <p className={ 'text-sm font-bold text-[rgb(32,32,32)] opacity-100' }>{ skill.title }</p>
         </div>

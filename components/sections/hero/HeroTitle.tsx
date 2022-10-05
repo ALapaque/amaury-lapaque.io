@@ -14,7 +14,7 @@ const HeroTitle = () => {
         <span>{ text }</span>
         <span>{ ` />` }</span>
       </div>
-      <Cursor cursorColor={ '#f7ab0a99' } />
+      <Cursor cursorColor={ 'var(--primary-80)' } />
     </h1>
   );
 };
