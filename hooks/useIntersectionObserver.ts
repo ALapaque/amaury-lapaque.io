@@ -21,14 +21,12 @@ const useIntersectionObserver = (id: string, amountToObserve: number): [ number 
     );
 
     Array.apply(null, Array(amountToObserve)).forEach((value: unknown, index: number) => {
-      console.log('id to observe', `${ id }-${ index }`);
       const htmlElementToObserve: HTMLElement | null = document.getElementById(`${ id }${ index }`);
 
       if (!htmlElementToObserve) {
         return;
       }
 
-      console.log('observing', `${ id }${ index }`);
       observer$.observe(htmlElementToObserve);
     });
 

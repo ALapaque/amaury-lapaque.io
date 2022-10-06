@@ -54,9 +54,10 @@ const ContactForm = () => {
                 rows={ 5 }
                 { ...register('subject', { required: true }) } />
 
-      <button className={ 'bg-primary border border-primary py-5 px-10 rounded-md text-[#2e2e2e]' +
-                          ' font-bold text-lg hover:bg-transparent hover:text-primary transition-all ease-in-out' +
-                          ' duration-500' }>
+      <button className={ 'bg-[color:var(--primary)] border border-[color:var(--primary)] text-[color:var(--text)]' +
+                          ' py-5 px-10 rounded-md' +
+                          ' font-bold text-lg transition-all ease-in-out duration-500' +
+                          ' hover:bg-transparent hover:text-primary' }>
         Submit
       </button>
     </motion.form>

@@ -12,7 +12,7 @@ const CarouselNavigatorLeft = ({ animate, handleOnClick }: Props) => {
                      ' hover:animate-pulse hover:bg-transparent hover:text-primary' +
                      ' md:px-36' }
          onClick={ handleOnClick }>
-      <ChevronLeftIcon className={ 'carousel-arrow__left w-10 h-10' +
+      <ChevronLeftIcon className={ 'carousel-arrow__left text-[color:var(--text)] w-10 h-10' +
                                    `${ animate ? ' animate' : '' }` } />
     </div>
   );

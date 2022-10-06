@@ -9,7 +9,7 @@ const HeroTitle = () => {
 
   return (
     <h1 className={ 'text-5xl lg:text-6xl font-semibold px-10' }>
-      <div className={ 'hero-title inline-block mr-1' }>
+      <div className={ 'hero-title text-[color:var(--text)] inline-block mr-1' }>
         <span>{ `<` }</span>
         <span>{ text }</span>
         <span>{ ` />` }</span>

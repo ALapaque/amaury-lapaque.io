@@ -1,14 +1,14 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
+    './pages/**/*.{js,ts,jsx,tsx}',
+    './components/**/*.{js,ts,jsx,tsx}'
   ],
   theme: {
     extend: {
       colors: {
+        text: 'var(--text)',
         background: 'var(--background)',
-        primaryBase: 'var(--primary-base)',
         primary: 'var(--primary: rgb)',
         ['primary/10']: 'var(--primary-10)',
         ['primary/20']: 'var(--primary-20)',
@@ -26,4 +26,4 @@ module.exports = {
   variants: {
     scrollbar: ['rounded']
   }
-}
+};

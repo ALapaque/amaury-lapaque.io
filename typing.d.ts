@@ -88,4 +88,6 @@ interface SanityRGBA extends SanityBody<'rgbaColor'> {
 
 export interface Theme extends SanityBody<'theme'> {
   primary: SanityColor,
+  background: SanityColor,
+  text: SanityColor,
 }

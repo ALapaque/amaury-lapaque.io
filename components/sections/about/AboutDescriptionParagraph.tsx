@@ -9,7 +9,7 @@ const AboutDescriptionParagraph = () => {
   }
 
   return (
-    <p className={ 'text-base' }>{ pageInfo.backgroundInformation }</p>
+    <p className={ 'text-[color:var(--text)]' }>{ pageInfo.backgroundInformation }</p>
   );
 };
 

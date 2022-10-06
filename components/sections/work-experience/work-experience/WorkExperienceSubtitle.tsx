@@ -6,7 +6,7 @@ interface Props {
 
 const WorkExperienceSubtitle = ({ experience }: Props) => {
   return (
-    <p className={ 'text-lg text-center md:text-left pb-2' }>{ experience.company }</p>
+    <p className={ 'text-lg text-[color:var(--text)] text-center md:text-left pb-2' }>{ experience.company }</p>
   );
 };
 

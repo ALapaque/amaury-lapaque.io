@@ -4,7 +4,19 @@
 
 @layer components {
 	:root {
-		--background: #3a3a3a;
+		--text-base: 10, 10, 10;
+		--text: rgb(var(--text-base));
+		--background-base: 29, 224, 179;
+		--background: rgb(var(--background-base));
+		--background-10: rgba(var(--primary-base), .1);
+		--background-20: rgba(var(--primary-base), .2);
+		--background-30: rgba(var(--primary-base), .3);
+		--background-40: rgba(var(--primary-base), .4);
+		--background-50: rgba(var(--primary-base), .5);
+		--background-60: rgba(var(--primary-base), .6);
+		--background-70: rgba(var(--primary-base), .7);
+		--background-80: rgba(var(--primary-base), .8);
+		--background-90: rgba(var(--primary-base), .9);
 		--primary-base: 29, 224, 179;
 		--primary: rgb(var(--primary-base));
 		--primary-10: rgba(var(--primary-base), .1);
@@ -23,7 +35,8 @@
 	}
 
 	div#__next {
-		@apply h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-primary/80 scrollbar-thin scrollbar-thumb-rounded-full hover:scrollbar-thumb-primary/60
+		@apply h-screen snap-y snap-mandatory  overflow-y-scroll overflow-x-hidden z-0 scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-primary/80 scrollbar-thin scrollbar-thumb-rounded-full hover:scrollbar-thumb-primary/60;
+		background-color: var(--background);
 	}
 
 	.hero-btn {

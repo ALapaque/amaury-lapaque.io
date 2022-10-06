@@ -6,7 +6,7 @@ interface Props {
 
 const WorkExperienceTitle = ({ experience }: Props) => {
   return (
-    <h4 className={ 'text-4xl font-semibold text-center' }>{ experience.jobTitle }</h4>
+    <h4 className={ 'text-4xl font-semibold text-center text-[color:var(--text)]' }>{ experience.jobTitle }</h4>
   );
 };
 

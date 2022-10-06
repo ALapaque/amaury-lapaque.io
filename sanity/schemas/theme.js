@@ -8,6 +8,18 @@ export default {
       title: 'Primary',
       description: 'Primary color of the website',
       type: 'color'
+    },
+    {
+      name: 'background',
+      title: 'Background',
+      description: 'Background color of the website',
+      type: 'color'
+    },
+    {
+      name: 'text',
+      title: 'Text',
+      description: 'Text color of the website',
+      type: 'color'
     }
   ]
 };

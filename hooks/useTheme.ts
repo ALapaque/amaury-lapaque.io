@@ -1,14 +1,19 @@
 import { useEffect } from 'react';
-import { Theme } from '../typing';
+import { SanityColor, Theme } from '../typing';
 
 const useTheme = (theme: Theme) => {
+  console.log('theme :: ', theme);
+
+  const setDOMColor = (cssVariable: string, themeKey: keyof Theme) => {
+    const color: SanityColor = theme[themeKey] as SanityColor;
+
+    document.documentElement.style.setProperty(cssVariable, `${ color.rgb.r }, ${ color.rgb.g }, ${ color.rgb.b }`);
+  };
+
   useEffect(() => {
-    document.documentElement
-            .style
-            .setProperty(
-              '--primary-base',
-              `${ theme.primary.rgb.r }, ${ theme.primary.rgb.g }, ${ theme.primary.rgb.b }`
-            );
+    setDOMColor('--primary-base', 'primary');
+    setDOMColor('--background-base', 'background');
+    setDOMColor('--text-base', 'text');
   }, [ theme ]);
 };
 
