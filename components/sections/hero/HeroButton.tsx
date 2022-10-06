@@ -1,5 +1,5 @@
 import Link, { LinkProps } from 'next/link';
-import { ReactChildren, ReactNode } from 'react';
+import { ReactNode } from 'react';
 
 interface Props extends LinkProps {
   children: ReactNode;
@@ -8,7 +8,10 @@ interface Props extends LinkProps {
 const HeroButton = ({ children, ...linkProps }: Props) => {
   return (
     <Link { ...linkProps }>
-      <button className={ 'hero-btn' }>{ children }</button>
+      <button className={ 'hero-btn font-semibold' +
+                          ' md:text-lg' }>
+        { children }
+      </button>
     </Link>
   );
 };

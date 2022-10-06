@@ -22,6 +22,11 @@ export default {
       }
     },
     {
+      name: 'typeWritterValue',
+      title: 'Type writter value',
+      type: 'string'
+    },
+    {
       name: 'backgroundInformation',
       title: 'BackgroundInformation',
       type: 'string'

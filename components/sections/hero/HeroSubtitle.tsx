@@ -9,7 +9,10 @@ const HeroSubtitle = () => {
   }
 
   return (
-    <h2 className={ 'text-sm uppercase text-primary/60 pb-2 tracking-[15px]' }>{ pageInfo.role }</h2>
+    <h2 className={ 'text-sm uppercase text-[color:var(--text)] pb-2 tracking-[1.2rem]' +
+                    ' md:tracking-[20px] md:text-2xl' }>
+      { pageInfo.role }
+    </h2>
   );
 };
 

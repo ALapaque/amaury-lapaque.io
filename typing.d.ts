@@ -19,6 +19,7 @@ interface Image {
 export interface PageInfo extends SanityBody<'pageInfo'> {
   address: string,
   backgroundInformation: string,
+  typeWritterValue: string,
   email: string,
   role: string,
   heroImage: Image,
