@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import HeaderContactIcon from './HeaderContactIcon';
 import HeaderSocialIcons from './HeaderSocialIcons';
+import HeaderThemeSwitcher from './HeaderThemeSwitcher';
 
 const Header = () => {
   return (
@@ -38,8 +39,10 @@ const Header = () => {
           transition={ {
             duration: 0.75
           } }
-          className={ 'text-gray-300' }>
+          className={ 'flex flex-row items-center text-[gray]' }>
           <HeaderContactIcon />
+
+          <HeaderThemeSwitcher />
         </motion.div>
       </div>
     </header>

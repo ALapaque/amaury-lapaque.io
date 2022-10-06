@@ -1,20 +1,20 @@
 import { useEffect } from 'react';
-import { SanityColor, Theme } from '../typing';
+import { useRecoilValue } from 'recoil';
+import { themeSelector } from '../stores/data';
+import CssUtils from '../utils/CssUtils';
 
-const useTheme = (theme: Theme) => {
-  console.log('theme :: ', theme);
-
-  const setDOMColor = (cssVariable: string, themeKey: keyof Theme) => {
-    const color: SanityColor = theme[themeKey] as SanityColor;
-
-    document.documentElement.style.setProperty(cssVariable, `${ color.rgb.r }, ${ color.rgb.g }, ${ color.rgb.b }`);
-  };
+const useTheme = () => {
+  const themeState = useRecoilValue(themeSelector);
 
   useEffect(() => {
-    setDOMColor('--primary-base', 'primary');
-    setDOMColor('--background-base', 'background');
-    setDOMColor('--text-base', 'text');
-  }, [ theme ]);
+    if (!themeState) {
+      return;
+    }
+
+    CssUtils.setDOMColor('--primary-base', themeState, themeState.darkMode ? 'darkPrimary' : 'lightPrimary');
+    CssUtils.setDOMColor('--background-base', themeState, themeState.darkMode ? 'darkBackground' : 'lightBackground');
+    CssUtils.setDOMColor('--text-base', themeState, themeState.darkMode ? 'darkText' : 'lightText');
+  }, [ themeState, themeState?.darkMode ]);
 };
 
 export default useTheme;

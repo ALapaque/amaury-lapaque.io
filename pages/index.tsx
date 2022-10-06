@@ -13,6 +13,7 @@ import useTheme from '../hooks/useTheme';
 import SanityService from '../services/SanityService';
 import { DataState } from '../stores/data';
 import { Experience, PageInfo, Project, SanityBody, Skill, Social, Theme } from '../typing';
+import CssUtils from '../utils/CssUtils';
 
 type Props = {
   pageInfo: PageInfo,
@@ -26,7 +27,7 @@ type Props = {
 const Home: NextPage<Props> = ({ pageInfo, experiences, skills, projects, socials, theme }: Props) => {
   const setDataState = useSetRecoilState(DataState);
 
-  useTheme(theme);
+  useTheme();
 
   useEffect(() => {
     setDataState({
@@ -34,9 +35,13 @@ const Home: NextPage<Props> = ({ pageInfo, experiences, skills, projects, social
       experiences,
       skills,
       projects,
-      socials
+      socials,
+      theme: {
+        ...theme,
+        mode: CssUtils.isColorLightOrDark(`rgb(${ theme.darkMode ? 'darkBackground' : 'lightBackground' })`)
+      }
     });
-  }, [ setDataState, pageInfo, experiences, skills, projects, socials ]);
+  }, [ setDataState, pageInfo, experiences, skills, projects, socials, theme ]);
 
   return (
     <>

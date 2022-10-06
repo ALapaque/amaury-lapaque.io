@@ -1,5 +1,9 @@
 import { atom, selector } from 'recoil';
-import { Experience, PageInfo, Project, Skill, Social } from '../typing';
+import { Experience, PageInfo, Project, Skill, Social, Theme } from '../typing';
+
+export interface ThemeState extends Theme {
+  mode?: 'light' | 'dark';
+}
 
 export default interface DataStateInterface {
   pageInfo?: PageInfo,
@@ -7,11 +11,20 @@ export default interface DataStateInterface {
   skills?: Skill[],
   projects?: Project[],
   socials?: Social[],
+  theme?: ThemeState,
 }
 
 export const DataState = atom<DataStateInterface | null>({
   key: 'data',
-  default: null
+  default: null,
+  effects: [
+    ({ onSet, getPromise }) => {
+      onSet(async (newCartValue) => {
+        const theme: ThemeState | undefined = await getPromise(themeSelector);
+
+      });
+    }
+  ]
 });
 
 export const pageInfoSelector = selector({
@@ -56,5 +69,14 @@ export const socialsSelector = selector({
     const state = get<DataStateInterface | null>(DataState);
 
     return state?.socials;
+  }
+});
+
+export const themeSelector = selector({
+  key: 'ThemeSelector',
+  get: ({ get }): Theme | undefined => {
+    const state = get<DataStateInterface | null>(DataState);
+
+    return state?.theme;
   }
 });
