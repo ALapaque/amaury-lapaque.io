@@ -4,9 +4,10 @@
 
 @layer components {
 	:root {
-		--text-base: 10, 10, 10;
+		--text-base: 0,0,0;
+                --primary-base: 0,0,0;
+                --background-base: 0,0,0;
 		--text: rgb(var(--text-base));
-		--background-base: 29, 224, 179;
 		--background: rgb(var(--background-base));
 		--background-10: rgba(var(--primary-base), .1);
 		--background-20: rgba(var(--primary-base), .2);
@@ -17,7 +18,6 @@
 		--background-70: rgba(var(--primary-base), .7);
 		--background-80: rgba(var(--primary-base), .8);
 		--background-90: rgba(var(--primary-base), .9);
-		--primary-base: 29, 224, 179;
 		--primary: rgb(var(--primary-base));
 		--primary-10: rgba(var(--primary-base), .1);
 		--primary-20: rgba(var(--primary-base), .2);
