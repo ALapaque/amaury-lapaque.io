@@ -52,23 +52,6 @@ const Home: NextPage<Props> = ({ pageInfo, experiences, skills, projects, social
 
       <Header />
 
-      <div className={ 'snap-start' +
-                       ' h-screen' +
-                       ' flex' +
-                       ' flex-col' +
-                       ' space-y-8' +
-                       ' items-center' +
-                       ' justify-center' +
-                       ' text-center' +
-                       ' overflow-hidden' }>
-
-        <object type="image/svg+xml"
-                data="images/building_together.svg"
-                style={ {} }></object>
-
-      </div>
-
-
       <HeroSection />
       {/* About section */ }
       <AboutSection />
