@@ -1,5 +1,9 @@
 type SanityTypes = string | 'image' | 'pageInfo' | 'skill' | 'experience' | 'project' | 'social' | 'theme'
 
+interface Orderable {
+  order: number;
+}
+
 interface SanityBody<T = SanityTypes> {
   _createdAt: Date,
   _id: string,
@@ -28,7 +32,7 @@ export interface PageInfo extends SanityBody<'pageInfo'> {
   profilePic: Image,
 }
 
-export interface Skill extends SanityBody<'skill'> {
+export interface Skill extends SanityBody<'skill'>, Orderable {
   image: Image,
   progress: number,
   title: string,
@@ -45,7 +49,7 @@ export interface Experience extends SanityBody<'experience'> {
   technologies: Skill[],
 }
 
-export interface Project extends SanityBody<'project'> {
+export interface Project extends SanityBody<'project'>, Orderable {
   title: string,
   image: Image,
   linkToBuild: string,

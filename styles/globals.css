@@ -4,20 +4,20 @@
 
 @layer components {
 	:root {
-		--text-base: 0,0,0;
-                --primary-base: 0,0,0;
-                --background-base: 0,0,0;
+		--text-base: 0, 0, 0;
+		--primary-base: 0, 0, 0;
+		--background-base: 0, 0, 0;
 		--text: rgb(var(--text-base));
 		--background: rgb(var(--background-base));
-		--background-10: rgba(var(--primary-base), .1);
-		--background-20: rgba(var(--primary-base), .2);
-		--background-30: rgba(var(--primary-base), .3);
-		--background-40: rgba(var(--primary-base), .4);
-		--background-50: rgba(var(--primary-base), .5);
-		--background-60: rgba(var(--primary-base), .6);
-		--background-70: rgba(var(--primary-base), .7);
-		--background-80: rgba(var(--primary-base), .8);
-		--background-90: rgba(var(--primary-base), .9);
+		--background-10: rgba(var(--background-base), .1);
+		--background-20: rgba(var(--background-base), .2);
+		--background-30: rgba(var(--background-base), .3);
+		--background-40: rgba(var(--background-base), .4);
+		--background-50: rgba(var(--background-base), .5);
+		--background-60: rgba(var(--background-base), .6);
+		--background-70: rgba(var(--background-base), .7);
+		--background-80: rgba(var(--background-base), .8);
+		--background-90: rgba(var(--background-base), .9);
 		--primary: rgb(var(--primary-base));
 		--primary-10: rgba(var(--primary-base), .1);
 		--primary-20: rgba(var(--primary-base), .2);
