@@ -5,7 +5,9 @@ const ContactInformation = () => {
     <div className={ 'space-y-10' }>
       <h4 className={ 'text-4xl font-semibold text-center text-[color:var(--text)]' }>
         I have got just what you need.{ ' ' }
-        <span className={ 'decoration-primary/60 underline' }>Lets talk.</span>
+        <span className="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-primary/60 relative inline-block">
+        <span className="relative text-[color:var(--background)]">Lets talk.</span>
+      </span>
       </h4>
 
       <div className={'space-y-10'}>
