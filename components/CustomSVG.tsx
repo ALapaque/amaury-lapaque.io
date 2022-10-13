@@ -3,10 +3,9 @@ interface Props {
   className?: string,
 }
 
-const CustomSVG = ({ __html, className }: Props) => {
+const CustomSVG = ({ __html, className = '' }: Props) => {
   return (
-    <span
-
+    <div
       className={ 'custom__svg ' + className }
       dangerouslySetInnerHTML={ { __html } }
     />

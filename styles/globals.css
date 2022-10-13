@@ -44,13 +44,13 @@
 	}
 
 	.hero-btn {
-		@apply px-6 py-2 border border-transparent rounded-full uppercase text-xs tracking-widest transition-all;
-		color: var(--primary-60);
+		@apply px-6 py-2 border border-transparent rounded-full uppercase text-lg tracking-widest transition-all;
+		color: var(--text);
 	}
 
 	.hero-btn:hover {
-		color: var(--primary-40);
-		border-color: var(--primary-40);
+		color: var(--primary-70);
+		border-color: var(--primary-70);
 	}
 
 	div.hero-title span:first-child {
