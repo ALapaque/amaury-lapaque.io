@@ -10,8 +10,7 @@ const SkillSection = () => {
       whileInView={ { opacity: 1 } }
       transition={ { duration: 1.5 } }
       viewport={ { once: true } }
-      className={ 'snap-start' +
-                  ' flex' +
+      className={ 'flex' +
                   ' relative' +
                   ' flex-col' +
                   ' text-center' +

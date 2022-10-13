@@ -10,8 +10,7 @@ const AboutSection = () => {
       whileInView={ { opacity: 1 } }
       transition={ { duration: 1.5 } }
       id={ 'about' }
-      className={ 'relative flex flex-col snap-start text-center max-w-7xl px-5 justify-center mx-auto' +
-                  ' items-center' +
+      className={ 'relative flex flex-col text-center max-w-7xl px-5 justify-center mx-auto items-center' +
                   ' md:text-left md:flex-row' }>
       <AboutTitle />
 
