@@ -22,7 +22,7 @@ const WorkExperience = ({ experience, id }: Props) => {
       } }
       transition={ { duration: 1 } }
       id={ id }
-      className={ 'w-screen h-screen flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center' +
+      className={ 'w-screen flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center' +
                   ' p-20' +
                   ' md:p-44' }>
       <WorkExperienceImg experience={ experience } />

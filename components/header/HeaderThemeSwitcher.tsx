@@ -31,7 +31,7 @@ const HeaderThemeSwitcher = () => {
       className={ 'h-[50px] w-[50px] p-[12px]' }
       onClick={ _handleOnThemeSwitch }>
       <Icon className={ 'h-[100%] w-[100%] text-inherit transition-all ease-in-out' +
-                        `${ theme.mode === 'light' ? ' hover:text-white' : ' hover:text-[yellow]' }` } />
+                        `${ theme.darkMode ? ' hover:text-[yellow]' : ' hover:text-white' }` } />
     </button>
   );
 };

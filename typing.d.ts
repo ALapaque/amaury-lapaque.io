@@ -1,4 +1,4 @@
-type SanityTypes = string | 'image' | 'pageInfo' | 'skill' | 'experience' | 'project' | 'social' | 'theme'
+type SanityTypes = string | 'image' | 'pageInfo' | 'skill' | 'experience' | 'project' | 'social' | 'theme' | 'service'
 
 interface Orderable {
   order: number;
@@ -99,4 +99,10 @@ export interface Theme extends SanityBody<'theme'> {
   lightPrimary: SanityColor,
   lightBackground: SanityColor,
   lightText: SanityColor,
+}
+
+export interface Service extends SanityBody<'service'>, Orderable {
+  name: string,
+  description: string,
+  svg: string,
 }

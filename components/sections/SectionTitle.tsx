@@ -6,8 +6,8 @@ interface Props {
 
 const SectionTitle = ({ children }: Props) => {
   return (
-    <h3 className={ 'absolute top-32 uppercase tracking-[1rem] text-gray-500 text-2xl' +
-                    ' md:top-20' }>
+    <h3 className={ 'absolute top-10 uppercase tracking-[1rem] text-gray-500 text-2xl' +
+                    ' md:top-10' }>
       { children }
     </h3>
   );

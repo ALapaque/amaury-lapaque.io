@@ -1,15 +1,14 @@
-import type { NextPage } from 'next';
-import Head from 'next/head';
+import { NextPage } from 'next';
 import { useEffect } from 'react';
 import { useSetRecoilState } from 'recoil';
 import Header from '../components/header';
-import HeroSection from '../components/sections/hero';
+import SkillSection from '../components/sections/skills';
 import useTheme from '../hooks/useTheme';
 import { DataState } from '../stores/data';
 import CssUtils from '../utils/CssUtils';
 import { GetServerSideProps, getServerSidePropsUtils } from '../utils/GetServerSidePropsUtils';
 
-const Home: NextPage<GetServerSideProps> = ({ pageInfo, experiences, skills, projects, socials, theme, service }: GetServerSideProps) => {
+const Skills: NextPage<GetServerSideProps> = ({ pageInfo, experiences, skills, projects, socials, theme, service }: GetServerSideProps) => {
   const setDataState = useSetRecoilState(DataState);
 
   useTheme();
@@ -31,18 +30,14 @@ const Home: NextPage<GetServerSideProps> = ({ pageInfo, experiences, skills, pro
 
   return (
     <>
-      <Head>
-        <title>{ pageInfo?.name }</title>
-      </Head>
-
       <Header />
 
-      <HeroSection />
+      {/* Skill section */ }
+      <SkillSection />
     </>
   );
 };
 
 export const getServerSideProps: () => Promise<{ props: GetServerSideProps }> = getServerSidePropsUtils;
 
-export default Home;
-
+export default Skills;

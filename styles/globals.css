@@ -35,8 +35,12 @@
 	}
 
 	div#__next {
-		@apply h-screen snap-y snap-mandatory  overflow-y-scroll overflow-x-hidden z-0 scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-primary/80 scrollbar-thin scrollbar-thumb-rounded-full hover:scrollbar-thumb-primary/60;
+		@apply max-h-[100vh] overflow-x-hidden z-0 scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-primary/80 scrollbar-thin scrollbar-thumb-rounded-full hover:scrollbar-thumb-primary/60;
 		background-color: var(--background);
+	}
+
+	section {
+		height: calc(100vh - 75px);
 	}
 
 	.hero-btn {
@@ -83,7 +87,6 @@
 	div.carousel-dot.active {
 		background-color: var(--primary);
 	}
-
 }
 
 

@@ -23,7 +23,7 @@ const Carousel = ({ minElements = 0, maxElements, children, subElementId }: Prop
 
   return (
     <>
-      <div className={ 'relative w-full h-screen flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20' +
+      <div className={ 'relative w-full h-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20' +
                        ' scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-primary/80 scrollbar-thin' +
                        ' scrollbar-thumb-rounded-full hover:scrollbar-thumb-primary/60 ' }>
         { children }

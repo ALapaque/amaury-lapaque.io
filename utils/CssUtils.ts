@@ -5,6 +5,10 @@ abstract class CssUtils {
   static setDOMColor = (cssVariable: string, theme: ThemeState, themeKey: keyof Theme) => {
     const color: SanityColor = theme[themeKey] as SanityColor;
 
+    if (!color?.rgb) {
+      return;
+    }
+
     document.documentElement.style.setProperty(cssVariable, `${ color.rgb.r }, ${ color.rgb.g }, ${ color.rgb.b }`);
   };
 

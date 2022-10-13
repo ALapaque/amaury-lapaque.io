@@ -7,7 +7,7 @@ interface Props {
 
 const CarouselNavigatorLeft = ({ animate, handleOnClick }: Props) => {
   return (
-    <div className={ 'h-screen absolute left-0 px-12 flex items-center z-50 cursor-pointer' +
+    <div className={ 'h-full absolute left-0 px-12 flex items-center z-50 cursor-pointer' +
                      ' transition-all ease-in-out' +
                      ' hover:animate-pulse hover:bg-transparent hover:text-primary' +
                      ' md:px-36' }
