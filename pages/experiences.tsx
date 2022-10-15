@@ -1,40 +1,13 @@
 import { NextPage } from 'next';
-import { useEffect } from 'react';
-import { useSetRecoilState } from 'recoil';
-import Header from '../components/header';
+import Layout from '../components/Layout';
 import WorkExperienceSection from '../components/sections/work-experience';
-import useTheme from '../hooks/useTheme';
-import { DataState } from '../stores/data';
-import CssUtils from '../utils/CssUtils';
 import { GetServerSideProps, getServerSidePropsUtils } from '../utils/GetServerSidePropsUtils';
 
-const ExperiencesPage: NextPage<GetServerSideProps> = ({ pageInfo, experiences, skills, projects, socials, theme, service }: GetServerSideProps) => {
-  const setDataState = useSetRecoilState(DataState);
-
-  useTheme();
-
-  useEffect(() => {
-    setDataState({
-      pageInfo,
-      experiences,
-      skills,
-      projects,
-      socials,
-      theme: {
-        ...theme,
-        mode: CssUtils.isColorLightOrDark(`rgb(${ theme?.darkMode ? 'darkBackground' : 'lightBackground' })`)
-      },
-      service
-    });
-  }, [ setDataState, pageInfo, experiences, skills, projects, socials, theme, service ]);
-
+const ExperiencesPage: NextPage<GetServerSideProps> = (props: GetServerSideProps) => {
   return (
-    <>
-      <Header />
-
-      {/* Experience section */ }
+    <Layout { ...props } pageTitle={ 'EXPERIENCES' }>
       <WorkExperienceSection />
-    </>
+    </Layout>
   );
 };
 
