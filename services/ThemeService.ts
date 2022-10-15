@@ -5,7 +5,7 @@ export const getThemeQuery = (): string => {
   return (groq`*[_type == 'theme'][0]`);
 };
 
-export const fetchExperiences = async (): Promise<Theme> => {
+export const fetchTheme = async (): Promise<Theme> => {
   const res = await fetch(`${ process.env.NEXT_PUBLIC_BASE_URL }/api/fetchTheme`).catch(() => {
     return;
   });

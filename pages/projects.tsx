@@ -11,6 +11,6 @@ const ProjectsPage: NextPage<GetServerSideProps> = (props: GetServerSideProps) =
   );
 };
 
-export const getServerSideProps: () => Promise<{ props: GetServerSideProps }> = getServerSidePropsUtils;
+export const getServerSideProps: () => Promise<{ props: GetServerSideProps }> = () => getServerSidePropsUtils('projects');
 
 export default ProjectsPage;

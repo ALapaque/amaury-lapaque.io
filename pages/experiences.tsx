@@ -11,6 +11,7 @@ const ExperiencesPage: NextPage<GetServerSideProps> = (props: GetServerSideProps
   );
 };
 
-export const getServerSideProps: () => Promise<{ props: GetServerSideProps }> = getServerSidePropsUtils;
+export const getServerSideProps: () => Promise<{ props: GetServerSideProps }> = () => getServerSidePropsUtils(
+  'experiences');
 
 export default ExperiencesPage;

@@ -11,6 +11,6 @@ const Skills: NextPage<GetServerSideProps> = (props: GetServerSideProps) => {
   );
 };
 
-export const getServerSideProps: () => Promise<{ props: GetServerSideProps }> = getServerSidePropsUtils;
+export const getServerSideProps: () => Promise<{ props: GetServerSideProps }> = () => getServerSidePropsUtils('skills');
 
 export default Skills;
