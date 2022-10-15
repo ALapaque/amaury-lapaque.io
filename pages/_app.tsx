@@ -1,15 +1,10 @@
 import type { AppProps } from 'next/app';
-import { useEffect } from 'react';
-import ReactGA from 'react-ga';
 import { RecoilRoot } from 'recoil';
+import useEventTracker from '../hooks/useEventTracker';
 import '../styles/globals.css';
 
-ReactGA.initialize('G-PL59EV0Q63');
-
 function MyApp({ Component, pageProps }: AppProps) {
-  useEffect(() => {
-    ReactGA.pageview(window.location.pathname + window.location.search);
-  }, []);
+  useEventTracker();
 
   return (
     <RecoilRoot>
