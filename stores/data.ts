@@ -1,5 +1,5 @@
 import { atom, selector } from 'recoil';
-import { Experience, PageInfo, Project, Service, Skill, Social, Theme } from '../typing';
+import { Experience, PageInfo, Project, Service, Skill, Social, Testimonial, Theme } from '../typing';
 
 export interface ThemeState extends Theme {
   mode?: 'light' | 'dark';
@@ -13,11 +13,12 @@ export default interface DataStateInterface {
   socials?: Social[],
   theme?: ThemeState,
   service?: Service[],
+  testimonials?: Testimonial[],
 }
 
 export const DataState = atom<DataStateInterface | null>({
   key: 'data',
-  default: null,
+  default: null
 });
 
 export const pageInfoSelector = selector({
@@ -80,5 +81,14 @@ export const serviceSelector = selector({
     const state = get<DataStateInterface | null>(DataState);
 
     return state?.service;
+  }
+});
+
+export const testimonialsSelector = selector({
+  key: 'ServiceSelector',
+  get: ({ get }): Testimonial[] | undefined => {
+    const state = get<DataStateInterface | null>(DataState);
+
+    return state?.testimonials;
   }
 });

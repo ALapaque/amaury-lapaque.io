@@ -1,4 +1,14 @@
-type SanityTypes = string | 'image' | 'pageInfo' | 'skill' | 'experience' | 'project' | 'social' | 'theme' | 'service'
+type SanityTypes =
+  string
+  | 'image'
+  | 'pageInfo'
+  | 'skill'
+  | 'experience'
+  | 'project'
+  | 'social'
+  | 'theme'
+  | 'service'
+  | 'testimonial'
 
 interface Orderable {
   order: number;
@@ -36,6 +46,13 @@ export interface Skill extends SanityBody<'skill'>, Orderable {
   image: Image,
   progress: number,
   title: string,
+}
+
+export interface Testimonial extends SanityBody<'testimonial'>, Orderable {
+  name: string,
+  role: string,
+  image: Image,
+  comment: string,
 }
 
 export interface Experience extends SanityBody<'experience'> {

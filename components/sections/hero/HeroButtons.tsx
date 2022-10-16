@@ -24,6 +24,10 @@ const HeroButtons = () => {
                   href={ '/services' }>
         Services
       </HeroButton>
+      <HeroButton shallow
+                  href={ '/testimonials' }>
+        Testimonials
+      </HeroButton>
     </div>
   );
 };

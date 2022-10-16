@@ -3,7 +3,7 @@ import { serviceSelector } from '../../../stores/data';
 import { Service } from '../../../typing';
 import ServiceItem from './service-item';
 
-const Services = () => {
+const ServicesList = () => {
   const services = useRecoilValue(serviceSelector);
 
   if (!services) {
@@ -26,4 +26,4 @@ const Services = () => {
   );
 };
 
-export default Services;
+export default ServicesList;

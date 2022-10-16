@@ -1,7 +1,6 @@
-import { HomeIcon } from '@heroicons/react/24/solid';
 import { motion } from 'framer-motion';
-import Link from 'next/link';
 import HeaderContactIcon from './HeaderContactIcon';
+import HeaderHomeIcon from './HeaderHomeIcon';
 import HeaderSocialIcons from './HeaderSocialIcons';
 import HeaderThemeSwitcher from './HeaderThemeSwitcher';
 
@@ -25,14 +24,7 @@ const Header = () => {
           } }
           className={ 'flex flex-row items-center' }>
           <>
-            <button
-              className={ 'h-[50px] w-[50px] p-[12px]' }>
-              <Link href={ '/' }
-                    shallow>
-                <HomeIcon className={ 'h-[100%] w-[100%] text-[gray] transition-all ease-in-out' +
-                                      ' hover:text-[color:var(--primary)]' } />
-              </Link>
-            </button>
+            <HeaderHomeIcon />
 
             <HeaderSocialIcons />
           </>

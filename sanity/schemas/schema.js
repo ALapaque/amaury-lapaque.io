@@ -12,6 +12,7 @@ import skill from './skill';
 import social from './social';
 import theme from './theme';
 import service from './service';
+import testimonial from './testimonial';
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -23,6 +24,7 @@ export default createSchema({
     skill,
     social,
     theme,
-    service
+    service,
+    testimonial
   ])
 });

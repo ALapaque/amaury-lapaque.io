@@ -162,3 +162,9 @@
 		font-size: 24px !important;
 	}
 }
+
+@media (min-width: 992px) {
+	.rotate-lg-6 {
+		transform: rotate(6deg);
+	}
+}

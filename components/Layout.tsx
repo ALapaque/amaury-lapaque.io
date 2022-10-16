@@ -12,7 +12,7 @@ type Props = {
   children: ReactNode
 }
 
-const Layout = ({ children, pageTitle = '', pageInfo, experiences, skills, projects, socials, theme, service }: Props & GetServerSideProps) => {
+const Layout = ({ children, pageTitle = '', pageInfo, experiences, skills, projects, socials, theme, service, testimonials }: Props & GetServerSideProps) => {
   const setDataState = useSetRecoilState(DataState);
 
   useTheme();
@@ -28,9 +28,10 @@ const Layout = ({ children, pageTitle = '', pageInfo, experiences, skills, proje
         ...theme,
         mode: CssUtils.isColorLightOrDark(`rgb(${ theme?.darkMode ? 'darkBackground' : 'lightBackground' })`)
       },
-      service
+      service,
+      testimonials
     });
-  }, [ setDataState, pageInfo, experiences, skills, projects, socials, theme, service ]);
+  }, [ setDataState, pageInfo, experiences, skills, projects, socials, theme, service, testimonials ]);
 
   return (
     <>

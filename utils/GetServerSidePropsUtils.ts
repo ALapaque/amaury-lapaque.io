@@ -1,11 +1,12 @@
 import { fetchExperiences } from '../services/ExperiencesService';
 import { fetchPageInfo } from '../services/PageInfoService';
 import { fetchProjects } from '../services/ProjectsService';
-import SanityService from '../services/SanityService';
 import { fetchServices } from '../services/ServicesService';
 import { fetchSkills } from '../services/SkillsService';
+import { fetchSocials } from '../services/SocialsService';
+import { fetchTestimonials } from '../services/TestimonialsService';
 import { fetchTheme } from '../services/ThemeService';
-import { Experience, PageInfo, Project, Service, Skill, Social, Theme } from '../typing';
+import { Experience, PageInfo, Project, Service, Skill, Social, Testimonial, Theme } from '../typing';
 
 export type GetServerSideProps = {
   pageInfo: PageInfo,
@@ -15,12 +16,12 @@ export type GetServerSideProps = {
   projects?: Project[],
   socials?: Social[],
   service?: Service[],
+  testimonials?: Testimonial[]
 }
 
 export type Pages = keyof Omit<GetServerSideProps, 'theme' | 'socials'>
 
 export const getServerSidePropsUtils = async (pageToFetch?: Pages): Promise<{ props: GetServerSideProps }> => {
-  const sanityService: SanityService = new SanityService();
   let props: GetServerSideProps = {
     theme: {} as Theme,
     pageInfo: {} as PageInfo,
@@ -28,10 +29,11 @@ export const getServerSidePropsUtils = async (pageToFetch?: Pages): Promise<{ pr
     projects: [],
     service: [],
     skills: [],
-    socials: []
+    socials: [],
+    testimonials: []
   };
 
-  const [ pageInfo, theme ] = await Promise.all([ fetchPageInfo(), fetchTheme() ]);
+  const [ pageInfo, theme, socials ] = await Promise.all([ fetchPageInfo(), fetchTheme(), fetchSocials() ]);
 
   switch (pageToFetch) {
     case 'experiences':
@@ -56,13 +58,19 @@ export const getServerSidePropsUtils = async (pageToFetch?: Pages): Promise<{ pr
 
       props.skills = skills.sort((a: Skill, b: Skill) => a.order - b.order);
       break;
+    case 'testimonials':
+      const testimonials: Testimonial[] = await fetchTestimonials();
+
+      props.testimonials = testimonials.sort((a: Testimonial, b: Testimonial) => a.order - b.order);
+      break;
   }
 
   return {
     props: {
       ...props,
       theme,
-      pageInfo
+      pageInfo,
+      socials
     }
   };
 };
