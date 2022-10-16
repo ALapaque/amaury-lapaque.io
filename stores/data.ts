@@ -16,20 +16,9 @@ export default interface DataStateInterface {
   testimonials?: Testimonial[],
 }
 
-const defaultValue = (): DataStateInterface => ({
-  pageInfo: {} as PageInfo,
-  experiences: [],
-  skills: [],
-  projects: [],
-  socials: [],
-  theme: {} as ThemeState,
-  service: [],
-  testimonials: []
-});
-
-export const DataState = atom<DataStateInterface>({
+export const DataState = atom<DataStateInterface | null>({
   key: 'data',
-  default: defaultValue()
+  default: null
 });
 
 export const pageInfoSelector = selector({
@@ -99,8 +88,6 @@ export const testimonialsSelector = selector({
   key: 'TestimonialsSelector',
   get: ({ get }): Testimonial[] | undefined => {
     const state = get<DataStateInterface | null>(DataState);
-
-    console.log('state', state);
 
     return state?.testimonials;
   }

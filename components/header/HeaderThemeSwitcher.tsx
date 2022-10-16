@@ -4,14 +4,14 @@ import DataStateInterface, { DataState, themeSelector, ThemeState } from '../../
 
 const HeaderThemeSwitcher = () => {
   const theme = useRecoilValue<ThemeState | undefined>(themeSelector);
-  const [ data, setData ] = useRecoilState<DataStateInterface>(DataState);
+  const [ data, setData ] = useRecoilState<DataStateInterface | null>(DataState);
 
   const _handleOnThemeSwitch = () => {
     if (!data) {
       return;
     }
 
-    setData((state: DataStateInterface) => ({
+    setData((state) => ({
       ...state,
       theme: state?.theme ? {
         ...state.theme,
