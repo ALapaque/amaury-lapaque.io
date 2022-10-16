@@ -9,8 +9,8 @@ const ServiceSection = () => {
       initial={ { opacity: 0 } }
       whileInView={ { opacity: 1 } }
       transition={ { duration: 1.5 } }
-      className={ 'relative flex flex-col text-left md:flex-row max-w-full' +
-                  ' justify-evenly mx-auto items-center' }>
+      className={ 'flex flex-col text-left md:flex-row max-w-full' +
+                  ' justify-evenly mx-auto items-center z-10' }>
       <ServicesTitle />
 
       <ServicesList />

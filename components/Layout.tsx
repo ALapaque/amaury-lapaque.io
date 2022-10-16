@@ -2,7 +2,7 @@ import Head from 'next/head';
 import { ReactNode, useEffect } from 'react';
 import { useSetRecoilState } from 'recoil';
 import useTheme from '../hooks/useTheme';
-import { DataState } from '../stores/data';
+import DataStateInterface, { DataState } from '../stores/data';
 import CssUtils from '../utils/CssUtils';
 import { GetServerSideProps } from '../utils/GetServerSidePropsUtils';
 import Header from './header';
@@ -18,7 +18,8 @@ const Layout = ({ children, pageTitle = '', pageInfo, experiences, skills, proje
   useTheme();
 
   useEffect(() => {
-    setDataState({
+    setDataState((dataState: DataStateInterface) => ({
+      ...dataState,
       pageInfo,
       experiences,
       skills,
@@ -30,7 +31,7 @@ const Layout = ({ children, pageTitle = '', pageInfo, experiences, skills, proje
       },
       service,
       testimonials
-    });
+    }));
   }, [ setDataState, pageInfo, experiences, skills, projects, socials, theme, service, testimonials ]);
 
   return (
