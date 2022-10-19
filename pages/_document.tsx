@@ -16,7 +16,7 @@ class MyDocument extends Document {
           <meta name="google" content="nopagereadaloud" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <meta name="description"
-                content="Amaury Lapaque, Fullstack developer specilized in frontend technologies, feel free to contact" />
+                content="Amaury Lapaque, Fullstack developer specilized in frontend technologies, feel free to contact me" />
           <meta name="robots" content="noindex,nofollow" />
         </Head>
         <body>
