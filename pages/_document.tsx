@@ -11,13 +11,13 @@ class MyDocument extends Document {
                 href="/icon.png"></link>
           <meta name="theme-color"
                 content="#fff" />
-          <meta charset="utf-8">
-          <meta name="google" content="nositelinkssearchbox">
-          <meta name="google" content="nopagereadaloud">
-          <meta name="viewport" content="width=device-width, initial-scale=1">
+          <meta charset="utf-8" />
+          <meta name="google" content="nositelinkssearchbox" />
+          <meta name="google" content="nopagereadaloud" />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
           <meta name="description"
-                content="Amaury Lapaque, Fullstack developer specilized in frontend technologies, feel free to contact">
-          <meta name="robots" content="noindex,nofollow">
+                content="Amaury Lapaque, Fullstack developer specilized in frontend technologies, feel free to contact" />
+          <meta name="robots" content="noindex,nofollow" />
         </Head>
         <body>
         <Main />
