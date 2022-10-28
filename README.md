@@ -21,30 +21,32 @@
 
 ```
 "dependencies": {
-"@heroicons/react": "^2.0.11",
-"@portabletext/react": "^1.0.6",
-"@sanity/image-url": "^1.0.1",
-"framer-motion": "^7.3.5",
-"next": "12.3.0",
-"next-pwa": "^5.6.0",
-"next-sanity": "^0.8.4",
-"react": "18.2.0",
-"react-dom": "18.2.0",
-"react-hook-form": "^7.36.1",
-"react-simple-typewriter": "^4.0.2",
-"react-social-icons": "^5.14.0",
-"recoil": "^0.7.5",
-"tailwind-scrollbar": "^2.0.1"
+    "@heroicons/react": "^2.0.11",
+    "@portabletext/react": "^1.0.6",
+    "@sanity/image-url": "^1.0.1",
+    "framer-motion": "^7.3.5",
+    "next": "^13.0.0",
+    "next-pwa": "^5.6.0",
+    "next-sanity": "^0.8.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-ga": "^3.3.1",
+    "react-gtm-module": "^2.0.11",
+    "react-hook-form": "^7.36.1",
+    "react-simple-typewriter": "^4.0.2",
+    "react-social-icons": "^5.14.0",
+    "recoil": "^0.7.5",
+    "tailwind-scrollbar": "^2.0.1"
 },
 "devDependencies": {
-"@types/node": "18.7.18",
-"@types/react": "18.0.20",
-"@types/react-dom": "18.0.6",
-"autoprefixer": "^10.4.11",
-"eslint": "8.23.1",
-"eslint-config-next": "12.3.0",
-"postcss": "^8.4.16",
-"tailwindcss": "^3.1.8",
-"typescript": "4.8.3"
+    "@types/node": "18.7.18",
+    "@types/react": "18.0.20",
+    "@types/react-dom": "18.0.6",
+    "autoprefixer": "^10.4.11",
+    "eslint": "8.23.1",
+    "eslint-config-next": "^13.0.0",
+    "postcss": "^8.4.16",
+    "tailwindcss": "^3.1.8",
+    "typescript": "4.8.3"
 }
 ```
