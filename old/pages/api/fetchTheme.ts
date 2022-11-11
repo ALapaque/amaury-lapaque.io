@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { sanityClient } from '../../sanity';
-import { getThemeQuery } from '../../services/ThemeService';
-import { Theme } from '../../typing';
+import { sanityClient } from '../../../sanity';
+import { getThemeQuery } from '../../../services/ThemeService';
+import { Theme } from '../../../typing';
 
 type DATA = {
   theme: Theme

@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { sanityClient } from '../../sanity';
-import { getServicesQuery } from '../../services/ServicesService';
-import { Service } from '../../typing';
+import { sanityClient } from '../../../sanity';
+import { getServicesQuery } from '../../../services/ServicesService';
+import { Service } from '../../../typing';
 
 type DATA = {
   services: Service[]

@@ -9,9 +9,12 @@ const withPWA = require('next-pwa')({
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  experimental: {
+    appDir: true
+  },
   images: {
     domains: ['cdn.sanity.io']
   }
 };
 
-module.exports = withPWA(nextConfig);
+module.exports = nextConfig;

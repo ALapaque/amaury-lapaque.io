@@ -1,7 +1,7 @@
 import { NextPage } from 'next';
-import Layout from '../components/Layout';
-import WorkExperienceSection from '../components/sections/work-experience';
-import { GetServerSideProps, getServerSidePropsUtils } from '../utils/GetServerSidePropsUtils';
+import Layout from '../../components/Layout';
+import WorkExperienceSection from '../../components/sections/work-experience';
+import { GetServerSideProps, getServerSidePropsUtils } from '../../utils/GetServerSidePropsUtils';
 
 const ExperiencesPage: NextPage<GetServerSideProps> = (props: GetServerSideProps) => {
   return (

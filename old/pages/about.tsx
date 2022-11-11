@@ -1,7 +1,7 @@
 import { NextPage } from 'next';
-import Layout from '../components/Layout';
-import AboutSection from '../components/sections/about';
-import { GetServerSideProps, getServerSidePropsUtils } from '../utils/GetServerSidePropsUtils';
+import Layout from '../../components/Layout';
+import AboutSection from '../../components/sections/about';
+import { GetServerSideProps, getServerSidePropsUtils } from '../../utils/GetServerSidePropsUtils';
 
 const AboutPage: NextPage<GetServerSideProps> = (props: GetServerSideProps) => {
   return (

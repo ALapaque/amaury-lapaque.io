@@ -1,6 +1,6 @@
-import Layout from '../components/Layout';
-import TestimonialsSection from '../components/sections/testimonials';
-import { GetServerSideProps, getServerSidePropsUtils } from '../utils/GetServerSidePropsUtils';
+import Layout from '../../components/Layout';
+import TestimonialsSection from '../../components/sections/testimonials';
+import { GetServerSideProps, getServerSidePropsUtils } from '../../utils/GetServerSidePropsUtils';
 
 const Testimonials = (props: GetServerSideProps) => {
   return (

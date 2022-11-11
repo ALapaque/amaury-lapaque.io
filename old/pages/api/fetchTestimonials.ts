@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { sanityClient } from '../../sanity';
-import { getTestimonialsQuery } from '../../services/TestimonialsService';
-import { Testimonial } from '../../typing';
+import { sanityClient } from '../../../sanity';
+import { getTestimonialsQuery } from '../../../services/TestimonialsService';
+import { Testimonial } from '../../../typing';
 
 type DATA = {
   testimonials: Testimonial[]

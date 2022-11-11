@@ -1,7 +1,7 @@
 import type { NextPage } from 'next';
-import Layout from '../components/Layout';
-import HeroSection from '../components/sections/hero';
-import { GetServerSideProps, getServerSidePropsUtils } from '../utils/GetServerSidePropsUtils';
+import Layout from '../../components/Layout';
+import HeroSection from '../../components/sections/hero';
+import { GetServerSideProps, getServerSidePropsUtils } from '../../utils/GetServerSidePropsUtils';
 
 const Home: NextPage<GetServerSideProps> = (props: GetServerSideProps) => {
   return (

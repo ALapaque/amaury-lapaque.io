@@ -1,7 +1,7 @@
 import { NextPage } from 'next';
-import Layout from '../components/Layout';
-import ContactSection from '../components/sections/contact';
-import { GetServerSideProps, getServerSidePropsUtils } from '../utils/GetServerSidePropsUtils';
+import Layout from '../../components/Layout';
+import ContactSection from '../../components/sections/contact';
+import { GetServerSideProps, getServerSidePropsUtils } from '../../utils/GetServerSidePropsUtils';
 
 const ContactPage: NextPage<GetServerSideProps> = (props: GetServerSideProps) => {
   return (

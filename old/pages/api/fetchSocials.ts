@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { sanityClient } from '../../sanity';
-import { getSocialsQuery } from '../../services/SocialsService';
-import { Social } from '../../typing';
+import { sanityClient } from '../../../sanity';
+import { getSocialsQuery } from '../../../services/SocialsService';
+import { Social } from '../../../typing';
 
 type DATA = {
   socials: Social[]

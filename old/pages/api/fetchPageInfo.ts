@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { sanityClient } from '../../sanity';
-import { getPageInfoQuery } from '../../services/PageInfoService';
-import { PageInfo } from '../../typing';
+import { sanityClient } from '../../../sanity';
+import { getPageInfoQuery } from '../../../services/PageInfoService';
+import { PageInfo } from '../../../typing';
 
 type DATA = {
   pageInfo: PageInfo

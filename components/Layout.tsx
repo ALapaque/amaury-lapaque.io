@@ -1,3 +1,5 @@
+'use client';
+
 import Head from 'next/head';
 import { ReactNode, useEffect } from 'react';
 import { useSetRecoilState } from 'recoil';

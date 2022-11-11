@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { sanityClient } from '../../sanity';
-import { getExperiencesQuery } from '../../services/ExperiencesService';
-import { Experience } from '../../typing';
+import { sanityClient } from '../../../sanity';
+import { getExperiencesQuery } from '../../../services/ExperiencesService';
+import { Experience } from '../../../typing';
 
 type DATA = {
   experiences: Experience[]

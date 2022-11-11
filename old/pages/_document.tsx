@@ -6,9 +6,9 @@ class MyDocument extends Document {
       <Html>
         <Head>
           <link rel="manifest"
-                href="/manifest.json" />
+                href="/public/manifest.json" />
           <link rel="apple-touch-icon"
-                href="/icon.png"></link>
+                href="/public/icon.png"></link>
           <meta name="theme-color"
                 content="#fff" />
           <meta name="google" content="nositelinkssearchbox" />
