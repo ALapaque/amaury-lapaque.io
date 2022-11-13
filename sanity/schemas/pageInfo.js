@@ -4,6 +4,11 @@ export default {
   type: 'document',
   fields: [
     {
+      name: 'maintenance',
+      title: 'Under maintenance',
+      type: 'boolean'
+    },
+    {
       name: 'name',
       title: 'Name',
       type: 'string'
