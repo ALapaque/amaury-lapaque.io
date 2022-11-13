@@ -6,7 +6,7 @@ const useUnderMaintenance = ({ maintenance }: PageInfo) => {
   const router = useRouter();
 
   useEffect(() => {
-    maintenance && router.push('/under-maintenance');
+    (process.env.NODE_ENV === 'production' && maintenance) && router.push('/under-maintenance');
   }, [ router, maintenance ]);
 };
 

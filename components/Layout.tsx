@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import { ReactNode, useEffect } from 'react';
 import { useSetRecoilState } from 'recoil';
 import useTheme from '../hooks/useTheme';
@@ -33,12 +32,12 @@ const Layout = ({ children, pageTitle = '', pageInfo, experiences, skills, proje
     });
   }, [ setDataState, pageInfo, experiences, skills, projects, socials, theme, service, testimonials ]);
 
+  useEffect(() => {
+    document.title = `${ pageInfo.name } ${ pageTitle && '- ' + pageTitle }`;
+  }, [ pageTitle ]);
+
   return (
     <>
-      <Head>
-        <title>{ pageInfo?.name } { pageTitle && `- ${ pageTitle }` }</title>
-      </Head>
-
       <Header />
 
       <main>{ children }</main>
