@@ -11,21 +11,6 @@ const nextConfig = {
   swcMinify: true,
   images: {
     domains: ['cdn.sanity.io']
-  },
-  async headers() {
-    const headers = [];
-    if (process.env.NODE_ENV === 'production') {
-      headers.push({
-        headers: [
-          {
-            key: 'X-Robots-Tag',
-            value: 'noindex'
-          }
-        ],
-        source: '/:path*'
-      });
-    }
-    return headers;
   }
 };
 
