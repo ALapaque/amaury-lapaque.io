@@ -12,7 +12,8 @@ const HeroSection = () => {
       initial={ { opacity: 0 } }
       whileInView={ { opacity: 1 } }
       transition={ { duration: 1.5 } }
-      className={ ' flex' +
+      className={ 'min-h-[100vh]' +
+                  ' flex' +
                   ' flex-col' +
                   ' space-y-8' +
                   ' items-center' +

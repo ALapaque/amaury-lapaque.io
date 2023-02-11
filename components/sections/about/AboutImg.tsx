@@ -27,6 +27,7 @@ const AboutImg = () => {
         x: -200,
         opacity: 0
       } }
+
       whileInView={ {
         x: 0,
         opacity: 1

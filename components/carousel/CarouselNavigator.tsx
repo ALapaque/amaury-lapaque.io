@@ -27,7 +27,7 @@ const CarouselNavigator = ({ actualIndex, onUpdateIndex, minElements, maxElement
       return;
     }
 
-    htmlElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    htmlElement.scrollIntoView({ behavior: 'smooth', inline: 'start' });
     handleUpdateIndex(value);
   };
 
@@ -43,7 +43,7 @@ const CarouselNavigator = ({ actualIndex, onUpdateIndex, minElements, maxElement
       return;
     }
 
-    htmlElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    htmlElement.scrollIntoView({ behavior: 'smooth', inline: 'nearest', block: 'nearest' });
     handleUpdateIndex(tempIndex);
   };
 
