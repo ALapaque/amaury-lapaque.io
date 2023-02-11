@@ -21,13 +21,10 @@ jobs:
         with:
           runTests: false
       # report machine parameters
-      - run: yarn cypress info
+      - run: npm cypress info
       - run: node --version
       - run: node -p 'os.cpus()'
-      - run: yarn types
-      - run: yarn lint
-      - run: yarn test:unit:ci
-      - run: yarn build:ci
+      - run: npm run build
 
       - name: Save build folder
         uses: actions/upload-artifact@v3
@@ -47,12 +44,9 @@ jobs:
         with:
           runTests: false
       # report machine parameters
-      - run: yarn cypress info
+      - run: npm cypress info
       - run: node -p 'os.cpus()'
-      - run: yarn types
-      - run: yarn lint
-      - run: yarn test:unit:ci
-      - run: yarn build:ci
+      - run: npm run build
 
       - name: Save build folder
         uses: actions/upload-artifact@v3
@@ -99,14 +93,13 @@ jobs:
       - name: "UI Tests - Chrome"
         uses: cypress-io/github-action@v4
         with:
-          start: yarn start:ci
+          start: npm run dev
           wait-on: "http://localhost:3000"
           wait-on-timeout: 120
           browser: chrome
           record: true
           parallel: true
           group: "UI - Chrome"
-          spec: cypress/tests/ui/*
           config-file: cypress.config.js
 
       - name: Upload screenshots to argos-ci.com
@@ -143,14 +136,13 @@ jobs:
         uses: cypress-io/github-action@v4
         with:
           config: "viewportWidth=375,viewportHeight=667"
-          start: yarn start:ci
+          start: npm run dev
           wait-on: "http://localhost:3000"
           wait-on-timeout: 120
           browser: chrome
           record: true
           parallel: true
           group: "UI - Chrome - Mobile"
-          spec: cypress/tests/ui/*
           config-file: cypress.config.js
 
       - name: Upload screenshots to argos-ci.com
@@ -186,14 +178,13 @@ jobs:
       - name: "UI Tests - Firefox"
         uses: cypress-io/github-action@v4
         with:
-          start: yarn start:ci
+          start: npm run dev
           wait-on: "http://localhost:3000"
           wait-on-timeout: 120
           browser: firefox
           record: true
           parallel: true
           group: "UI - Firefox"
-          spec: cypress/tests/ui/*
           config-file: cypress.config.js
 
       - name: Upload screenshots to argos-ci.com
@@ -230,14 +221,13 @@ jobs:
         uses: cypress-io/github-action@v4
         with:
           config: "viewportWidth=375,viewportHeight=667"
-          start: yarn start:ci
+          start: npm run dev
           wait-on: "http://localhost:3000"
           wait-on-timeout: 120
           browser: firefox
           record: true
           parallel: true
           group: "UI - Firefox - Mobile"
-          spec: cypress/tests/ui/*
           config-file: cypress.config.js
 
       - name: Upload screenshots to argos-ci.com
@@ -270,13 +260,12 @@ jobs:
       - name: "UI Tests - Electron - Windows"
         uses: cypress-io/github-action@v4
         with:
-          start: yarn start:ci
+          start: npm run dev
           wait-on: "http://localhost:3000"
           wait-on-timeout: 120
           record: true
           parallel: true
           group: "UI - Electron - Windows"
-          spec: cypress/tests/ui/*
           config-file: cypress.config.js
 
       - name: Upload screenshots to argos-ci.com
