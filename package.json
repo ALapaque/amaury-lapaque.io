@@ -27,10 +27,13 @@
     "tailwind-scrollbar": "^2.0.1"
   },
   "devDependencies": {
+    "@argos-ci/cli": "^0.4.3",
+    "@argos-ci/cypress": "^0.0.6",
     "@types/node": "18.7.18",
     "@types/react": "18.0.20",
     "@types/react-dom": "18.0.6",
     "autoprefixer": "^10.4.11",
+    "cypress": "^12.5.1",
     "eslint": "8.23.1",
     "eslint-config-next": "^13.0.0",
     "postcss": "^8.4.16",
