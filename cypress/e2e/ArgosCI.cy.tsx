@@ -57,3 +57,5 @@ describe('ArgosCI', () => {
     cy.argosScreenshot('testimonials');
   });
 });
+
+export {};
