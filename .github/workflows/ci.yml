@@ -16,7 +16,6 @@ jobs:
           build: npm run build
           start: npm start
         env:
-          ARGOS_KEY: ${{ secrets.ARGOS_KEY }}
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
           NEXT_PUBLIC_SANITY_DATASET: ${{ secrets.NEXT_PUBLIC_SANITY_DATASET }}
@@ -24,7 +23,7 @@ jobs:
           NEXT_PUBLIC_GOOGLE_ANALYTICS_ID: ${{ secrets.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID }}
           NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID: ${{ secrets.NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID }}
 
-      - name: Upload screenshots to argos-ci.com
-        run: npx @argos-ci/cli upload ../cypress/screenshots
+      - name: Argos upload screenshots
+        run: npx argos upload cypress/screenshots
         env:
-          ARGOS_KEY: ${{ secrets.ARGOS_KEY }}
+          ARGOS_TOKEN: ${{ secrets.ARGOS_TOKEN }}
