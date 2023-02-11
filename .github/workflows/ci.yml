@@ -1,24 +1,287 @@
-name: Cypress Tests
+name: CI
 
-on: [ push ]
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
-  cypress-run:
+  install:
     runs-on: ubuntu-latest
+    container:
+      image: cypress/browsers:node16.13.0-chrome95-ff94
+      options: --user 1001
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      # Install NPM dependencies, cache them correctly
-      # and run all Cypress tests
-      - name: Cypress run
-        uses: cypress-io/github-action@v5.0.8 # use the explicit version number
+
+      - name: Cypress install
+        uses: cypress-io/github-action@v4
         with:
-          build: npm run build
-          start: npm start
-        env: # Or as an environment variable
+          runTests: false
+      # report machine parameters
+      - run: npx cypress info
+      - run: node --version
+      - run: node -p 'os.cpus()'
+      - run: npm run build
+
+      - name: Save build folder
+        uses: actions/upload-artifact@v3
+        with:
+          name: build
+          if-no-files-found: error
+          path: build
+        env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
           NEXT_PUBLIC_SANITY_DATASET: ${{ secrets.NEXT_PUBLIC_SANITY_DATASET }}
           NEXT_PUBLIC_BASE_URL: ${{ secrets.NEXT_PUBLIC_BASE_URL }}
           NEXT_PUBLIC_GOOGLE_ANALYTICS_ID: ${{ secrets.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID }}
           NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID: ${{ secrets.NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID }}
+
+  install-windows:
+    runs-on: windows-2019
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Cypress install
+        uses: cypress-io/github-action@v4
+        with:
+          runTests: false
+      # report machine parameters
+      - run: npx cypress info
+      - run: node -p 'os.cpus()'
+      - run: npm run build
+
+      - name: Save build folder
+        uses: actions/upload-artifact@v3
+        with:
+          name: build
+          if-no-files-found: error
+          path: build
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
+          NEXT_PUBLIC_SANITY_DATASET: ${{ secrets.NEXT_PUBLIC_SANITY_DATASET }}
+          NEXT_PUBLIC_BASE_URL: ${{ secrets.NEXT_PUBLIC_BASE_URL }}
+          NEXT_PUBLIC_GOOGLE_ANALYTICS_ID: ${{ secrets.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID }}
+          NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID: ${{ secrets.NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID }}
+
+  ui-chrome-tests:
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+    container:
+      image: cypress/browsers:node16.13.0-chrome95-ff94
+      options: --user 1001
+    needs: install
+    strategy:
+      # when one test fails, DO NOT cancel the other
+      # containers, because this will kill Cypress processes
+      # leaving Cypress Cloud hanging ...
+      # https://github.com/cypress-io/github-action/issues/48
+      fail-fast: false
+      matrix:
+        # run copies of the current job in parallel
+        containers: [ 1, 2, 3, 4, 5 ]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Download the build folders
+        uses: actions/download-artifact@v3
+        with:
+          name: build
+          path: build
+
+      - name: Cypress info
+        run: npx cypress info
+
+      - name: Node info
+        run: node -v
+
+      - name: __e Dir
+        run: ls /__e
+
+      - name: "UI Tests - Chrome"
+        uses: cypress-io/github-action@v4
+        with:
+          start: npm run dev
+          wait-on: "http://localhost:3000"
+          wait-on-timeout: 120
+          browser: chrome
+          record: true
+          parallel: true
+          group: "UI - Chrome"
+          config-file: cypress.config.js
+
+      - name: Upload screenshots to argos-ci.com
+        continue-on-error: true
+        run: npx @argos-ci/cli upload ./screenshots
+
+  ui-chrome-mobile-tests:
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+    container:
+      image: cypress/browsers:node16.13.0-chrome95-ff94
+      options: --user 1001
+    needs: install
+    strategy:
+      # when one test fails, DO NOT cancel the other
+      # containers, because this will kill Cypress processes
+      # leaving Cypress Cloud hanging ...
+      # https://github.com/cypress-io/github-action/issues/48
+      fail-fast: false
+      matrix:
+        # run copies of the current job in parallel
+        containers: [ 1, 2, 3, 4, 5 ]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Download the build folders
+        uses: actions/download-artifact@v3
+        with:
+          name: build
+          path: build
+
+      - name: "UI Tests - Chrome - Mobile"
+        uses: cypress-io/github-action@v4
+        with:
+          config: "viewportWidth=375,viewportHeight=667"
+          start: npm run dev
+          wait-on: "http://localhost:3000"
+          wait-on-timeout: 120
+          browser: chrome
+          record: true
+          parallel: true
+          group: "UI - Chrome - Mobile"
+          config-file: cypress.config.js
+
+      - name: Upload screenshots to argos-ci.com
+        continue-on-error: true
+        run: npx @argos-ci/cli upload ./screenshots
+
+  ui-firefox-tests:
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+    container:
+      image: cypress/browsers:node16.13.0-chrome95-ff94
+      options: --user 1001
+    needs: install
+    strategy:
+      # when one test fails, DO NOT cancel the other
+      # containers, because this will kill Cypress processes
+      # leaving Cypress Cloud hanging ...
+      # https://github.com/cypress-io/github-action/issues/48
+      fail-fast: false
+      matrix:
+        # run copies of the current job in parallel
+        containers: [ 1, 2, 3, 4, 5 ]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Download the build folders
+        uses: actions/download-artifact@v3
+        with:
+          name: build
+          path: build
+
+      - name: "UI Tests - Firefox"
+        uses: cypress-io/github-action@v4
+        with:
+          start: npm run dev
+          wait-on: "http://localhost:3000"
+          wait-on-timeout: 120
+          browser: firefox
+          record: true
+          parallel: true
+          group: "UI - Firefox"
+          config-file: cypress.config.js
+
+      - name: Upload screenshots to argos-ci.com
+        continue-on-error: true
+        run: npx @argos-ci/cli upload ./screenshots
+
+  ui-firefox-mobile-tests:
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+    container:
+      image: cypress/browsers:node16.13.0-chrome95-ff94
+      options: --user 1001
+    needs: install
+    strategy:
+      # when one test fails, DO NOT cancel the other
+      # containers, because this will kill Cypress processes
+      # leaving Cypress Cloud hanging ...
+      # https://github.com/cypress-io/github-action/issues/48
+      fail-fast: false
+      matrix:
+        # run copies of the current job in parallel
+        containers: [ 1, 2, 3, 4, 5 ]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Download the build folders
+        uses: actions/download-artifact@v3
+        with:
+          name: build
+          path: build
+
+      - name: "UI Tests - Firefox - Mobile"
+        uses: cypress-io/github-action@v4
+        with:
+          config: "viewportWidth=375,viewportHeight=667"
+          start: npm run dev
+          wait-on: "http://localhost:3000"
+          wait-on-timeout: 120
+          browser: firefox
+          record: true
+          parallel: true
+          group: "UI - Firefox - Mobile"
+          config-file: cypress.config.js
+
+      - name: Upload screenshots to argos-ci.com
+        continue-on-error: true
+        run: npx @argos-ci/cli upload ./screenshots
+
+  ui-windows-tests:
+    timeout-minutes: 40
+    runs-on: windows-2019
+    needs: install-windows
+    strategy:
+      # when one test fails, DO NOT cancel the other
+      # containers, because this will kill Cypress processes
+      # leaving Cypress Cloud hanging ...
+      # https://github.com/cypress-io/github-action/issues/48
+      fail-fast: false
+      matrix:
+        # run copies of the current job in parallel
+        containers: [ 1, 2, 3, 4, 5 ]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Download the build folders
+        uses: actions/download-artifact@v3
+        with:
+          name: build
+          path: build
+
+      - name: "UI Tests - Electron - Windows"
+        uses: cypress-io/github-action@v4
+        with:
+          start: npm run dev
+          wait-on: "http://localhost:3000"
+          wait-on-timeout: 120
+          record: true
+          parallel: true
+          group: "UI - Electron - Windows"
+          config-file: cypress.config.js
+
+      - name: Upload screenshots to argos-ci.com
+        continue-on-error: true
+        run: npx @argos-ci/cli upload ./screenshots
