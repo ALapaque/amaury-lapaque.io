@@ -15,6 +15,8 @@ class MyDocument extends Document {
           <meta name="google" content="nopagereadaloud" />
           <meta name="viewport"
                 content="width=device-width, initial-scale=1" />
+          <meta name="google-site-verification"
+                content="bXCbkD-6EYFXtLD8Ol4rXdaE88T5KXHbwyWaTmxi6JM" />
           <meta name="description"
                 content="Amaury Lapaque, Fullstack developer specialized in frontend technologies, feel free to contact me" />
         </Head>

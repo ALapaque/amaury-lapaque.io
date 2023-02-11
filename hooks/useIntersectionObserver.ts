@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import PlatformUtils from '../utils/PlatformUtils';
 
 const useIntersectionObserver = (id: string, amountToObserve: number): [ number ] => {
   const [ indexVisible, setIndexVisible ] = useState<number>(0);
@@ -17,7 +18,7 @@ const useIntersectionObserver = (id: string, amountToObserve: number): [ number 
   useEffect(() => {
     observer$ = new IntersectionObserver(
       _handleIntersectionObserverEntries,
-      { root: null, rootMargin: '0px', threshold: 0.8 }
+      { root: null, rootMargin: '0px', threshold: PlatformUtils().isMobile ? 0.65 : 0.8 }
     );
 
     Array.apply(null, Array(amountToObserve)).forEach((value: unknown, index: number) => {
@@ -33,7 +34,7 @@ const useIntersectionObserver = (id: string, amountToObserve: number): [ number 
     return () => {
       observer$ && observer$.disconnect();
     };
-  }, []);
+  }, [ PlatformUtils().isMobile ]);
 
   return [ indexVisible ];
 };
