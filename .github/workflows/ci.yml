@@ -25,6 +25,6 @@ jobs:
           NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID: ${{ secrets.NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID }}
 
       - name: Upload screenshots to argos-ci.com
-        run: npx @argos-ci/cli upload ./screenshots
+        run: npx @argos-ci/cli upload ../cypress/screenshots
         env:
           ARGOS_KEY: ${{ secrets.ARGOS_KEY }}
