@@ -8,7 +8,7 @@ import HeroTitle from './HeroTitle';
 const HeroSection = () => {
   return (
     <motion.section
-      id={ 'hero' }
+      id={ 'home' }
       initial={ { opacity: 0 } }
       whileInView={ { opacity: 1 } }
       transition={ { duration: 1.5 } }
