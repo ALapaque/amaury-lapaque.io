@@ -10,8 +10,8 @@ const ContactSection = () => {
       initial={ { opacity: 0 } }
       whileInView={ { opacity: 1 } }
       transition={ { duration: 1.5 } }
-      className={ 'flex relative flex-col text-center md:text-left max-w-7xl px-10 pt-0 md:pt-10' +
-                  ' place-content-center gap-y-10 mx-auto items-center' }>
+      className={ 'pt-5 flex flex-col gap-10 text-center items-center' }>
+
       <ContactTitle />
 
       <ContactInformation />

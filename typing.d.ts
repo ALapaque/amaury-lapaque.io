@@ -31,6 +31,7 @@ interface Image {
 }
 
 export interface PageInfo extends SanityBody<'pageInfo'> {
+  useSinglePage: boolean,
   maintenance: boolean,
   address: string,
   backgroundInformation: string,

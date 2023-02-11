@@ -37,10 +37,17 @@
 	div#__next {
 		@apply max-h-[100vh] overflow-x-hidden z-0 scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-primary/80 scrollbar-thin scrollbar-thumb-rounded-full hover:scrollbar-thumb-primary/60;
 		background-color: var(--background);
+		scroll-behavior: smooth;
+		scroll-snap-type: y mandatory;
+		scroll-padding-top: 75px;
 	}
 
 	section {
-		height: calc(100vh - 75px);
+		min-height: 100vh;
+	}
+
+	section > div.carousel-container {
+		height: calc(100vh - 75px - 32px - 1.25rem);
 	}
 
 	.hero-btn {

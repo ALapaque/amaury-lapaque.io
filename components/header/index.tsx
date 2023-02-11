@@ -6,7 +6,7 @@ import HeaderThemeSwitcher from './HeaderThemeSwitcher';
 
 const Header = () => {
   return (
-    <header className={ 'sticky top-0 z-50 w-full flex backdrop-blur-lg' }>
+    <header className={ 'sticky top-0 z-50 w-full flex backdrop-blur-lg bg-[color:var(--background)]' }>
       <div className={ 'max-h-[75px] w-full p-5 flex items-start justify-between max-w-7xl mx-auto xl:items-center' }>
         <motion.div
           initial={ {

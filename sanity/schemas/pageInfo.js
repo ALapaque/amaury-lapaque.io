@@ -4,6 +4,11 @@ export default {
   type: 'document',
   fields: [
     {
+      name: 'useSinglePage',
+      title: 'Use single page',
+      type: 'boolean'
+    },
+    {
       name: 'maintenance',
       title: 'Under maintenance',
       type: 'boolean'
