@@ -1,4 +1,4 @@
-name: [ UI ] change detection using Argos-CI
+name: UI change detection using Argos-CI
 
 on: [ push ]
 
