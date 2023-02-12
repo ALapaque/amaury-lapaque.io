@@ -8,7 +8,7 @@ interface Props extends LinkProps {
 const HeroButton = ({ children, ...linkProps }: Props) => {
   return (
     <Link { ...linkProps }>
-      <button className={ 'hero-btn' }>
+      <button className={ 'btn' }>
         { children }
       </button>
     </Link>

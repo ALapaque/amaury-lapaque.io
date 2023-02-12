@@ -57,7 +57,8 @@ const ContactForm = () => {
       <button className={ 'bg-[color:var(--primary)] border border-[color:var(--primary)] text-[color:var(--text)]' +
                           ' py-5 px-10 rounded-md' +
                           ' font-bold text-lg transition-all ease-in-out duration-500' +
-                          ' hover:bg-transparent hover:text-primary' }>
+                          ' hover:bg-transparent hover:text-primary' }
+              type={ 'submit' }>
         Submit
       </button>
     </motion.form>

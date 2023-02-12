@@ -26,6 +26,7 @@
     "react-simple-typewriter": "^5.0.1",
     "react-social-icons": "^5.15.0",
     "recoil": "^0.7.6",
+    "sass": "^1.58.0",
     "tailwind-scrollbar": "^2.1.0"
   },
   "devDependencies": {
