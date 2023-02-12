@@ -18,7 +18,6 @@ const WorkExperienceImg = ({ experience }: Props) => {
         opacity: 1
       } }
       transition={ { duration: 1 } }
-      viewport={ { once: true } }
       src={ urlFor(experience.companyImage) }
       alt={ 'img' }
       className={ 'max-w-[20vh] max-h-[10vh]' } />

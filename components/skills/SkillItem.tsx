@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { urlFor } from '../../sanity';
 import { Skill } from '../../typing';
 
@@ -7,9 +8,11 @@ interface Props {
 
 const SkillItem = ({ skill }: Props) => {
   return (
-    <img className={ 'h-10 w-10 object-contain' }
-         src={ urlFor(skill.image) }
-         alt={ skill.title } />
+    <Image className={ 'h-10 w-10 object-contain' }
+           height={ 1000 }
+           width={ 1000 }
+           src={ urlFor(skill.image) }
+           alt={ skill.title } />
   );
 };
 

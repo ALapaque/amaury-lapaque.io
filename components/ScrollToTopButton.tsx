@@ -1,33 +1,49 @@
 import { ArrowUpIcon } from '@heroicons/react/24/solid';
+import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { MutableRefObject, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+import ScrollEvent = JQuery.ScrollEvent;
 
-interface Props {
-  scrollableContainerRef: MutableRefObject<HTMLDivElement | null>;
-}
-
-const ScrollToTopButton = ({ scrollableContainerRef }: Props) => {
+const ScrollToTopButton = () => {
   const [ isDisplay, setIsDisplay ] = useState<boolean>(false);
 
-  useEffect(() => {
-    const { current: container } = scrollableContainerRef;
-    if (!container) {
+  const _handleOnScroll = (event: Event) => {
+    if (!event) {
       return;
     }
 
-    setIsDisplay(container.scrollTop > 300);
-  }, [ scrollableContainerRef, scrollableContainerRef?.current?.scrollTop ]);
+    console.log((event as unknown as ScrollEvent).target.scrollTop > 300);
+
+    setIsDisplay((event as unknown as ScrollEvent).target.scrollTop > 300);
+  };
+
+  useEffect(() => {
+    document.getElementById('__next')?.addEventListener('scroll', _handleOnScroll);
+
+    return () => {
+      document.getElementById('__next')?.removeEventListener('scroll', _handleOnScroll);
+    };
+  }, []);
 
   if (!isDisplay) {
     return <></>;
   }
 
   return (
-    <Link href={ '#hero' }>
-      <a className={ 'fixed bottom-12 right-12 z-50 bg-[#f7ab0a]/60 p-2 rounded-full' }>
-        <ArrowUpIcon className={ 'w-8 h-8 text-[rgb(46,46,46)]' } />
-      </a>
-    </Link>
+    <motion.span
+      initial={ { opacity: 0 } }
+      animate={ { opacity: 1 } }
+      transition={ { duration: 1.5 } }>
+      <Link href={ '/#home' }
+            className={ 'fixed bottom-12 left-12 z-50' +
+                        ' bg-[color:var(--primary-70)]' +
+                        ' border-2' +
+                        ' border-[color:var(--primary-70)]' +
+                        ' text-[color:var(--background)] p-2 rounded-full' +
+                        ' hover:bg-[color:var(--background)] hover:text-[color:var(--primary)] hover:border-2' }>
+        <ArrowUpIcon className={ 'w-8 h-8 text-inherit' } />
+      </Link>
+    </motion.span>
   );
 };
 

@@ -34,7 +34,7 @@ const MultiPageLayout = ({ children, pageTitle = '', pageInfo, experiences, skil
 
   useEffect(() => {
     document.title = `${ pageInfo.name } ${ pageTitle && '- ' + pageTitle }`;
-  }, [ pageTitle ]);
+  }, [ pageTitle, pageInfo.name ]);
 
   return (
     <>

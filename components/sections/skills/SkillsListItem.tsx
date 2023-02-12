@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { urlFor } from '../../../sanity';
 import { Skill } from '../../../typing';
 
@@ -8,10 +9,12 @@ interface Props {
 const SkillsListItem = ({ skill }: Props) => {
   return (
     <div className={ 'group relative flex' }>
-      <img src={ urlFor(skill.image) }
-           alt={ `${ skill.title }-img` }
-           className={ 'object-contain p-2 w-24 h-24 xl:w-32 xl:h-32 filter' +
-                       ' group-hover:grayscale duration-300 ease-in-out' } />
+      <Image src={ urlFor(skill.image) }
+             height={ 1000 }
+             width={ 1000 }
+             alt={ `${ skill.title }-img` }
+             className={ 'object-contain p-2 w-24 h-24 xl:w-32 xl:h-32 filter' +
+                         ' group-hover:grayscale duration-300 ease-in-out' } />
 
       <div className={ 'absolute opacity-0 group-hover:opacity-95 transition duration-300 ease-in-out rounded' +
                        ' cursor-pointer bg-[color:var(--primary)]  w-24 h-24 xl:w-32 xl:h-32' }>

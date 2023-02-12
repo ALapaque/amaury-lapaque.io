@@ -1,6 +1,8 @@
 import type { NextPage } from 'next';
+import React from 'react';
 import MultiPageLayout from '../components/layout/MultiPageLayout';
 import SinglePageLayout from '../components/layout/SinglePageLayout';
+import ScrollToTopButton from '../components/ScrollToTopButton';
 import AboutSection from '../components/sections/about';
 import ContactSection from '../components/sections/contact';
 import HeroSection from '../components/sections/hero';
@@ -13,7 +15,6 @@ import useUnderMaintenance from '../hooks/useUnderMaintenance';
 import { GetServerSideProps, getServerSidePropsUtils } from '../utils/GetServerSidePropsUtils';
 
 const Home: NextPage<GetServerSideProps> = (props: GetServerSideProps) => {
-  console.log(props);
   useUnderMaintenance(props.pageInfo);
 
   if (props.pageInfo.useSinglePage) {
@@ -34,6 +35,8 @@ const Home: NextPage<GetServerSideProps> = (props: GetServerSideProps) => {
         <TestimonialsSection />
 
         <ContactSection />
+
+        <ScrollToTopButton />
       </SinglePageLayout>
     );
   }
