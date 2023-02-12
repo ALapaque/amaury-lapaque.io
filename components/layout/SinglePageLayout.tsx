@@ -11,6 +11,7 @@ type Props = {
   children: ReactNode
 }
 
+// eslint-disable-next-line react/display-name
 const SinglePageLayout = ({ children, pageTitle = '', pageInfo, experiences, skills, projects, socials, theme, service, testimonials }: Props & GetServerSideProps) => {
   const setDataState = useSetRecoilState(DataState);
 
