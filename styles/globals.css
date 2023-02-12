@@ -94,6 +94,115 @@
 	}
 }
 
+.btn {
+	font-size: 17px;
+	background: transparent;
+	border: none;
+	padding: 1em 1.5em;
+	color: var(--text);
+	text-transform: uppercase;
+	position: relative;
+	transition: .5s ease;
+}
+
+.btn::before {
+	content: '';
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	height: 2px;
+	width: 0;
+	background-color: var(--primary);
+	transition: .5s ease;
+}
+
+.btn:hover {
+	color: var(--background);
+	transition-delay: .5s;
+}
+
+.btn:hover::before {
+	width: 100%;
+}
+
+.btn::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	height: 0;
+	width: 100%;
+	background-color: var(--primary);
+	transition: .4s ease;
+	z-index: -1;
+}
+
+.btn:hover::after {
+	height: 100%;
+	transition-delay: 0.4s;
+	color: var(--primary);
+}
+
+/**
+ form submit button
+ */
+
+button[type='submit'] {
+	width: 100%;
+	padding: 15px 20px;
+	font-size: 16px;
+	background: transparent;
+	border: none;
+	position: relative;
+	color: var(--text);
+	z-index: 1;
+}
+
+button[type='submit']::after,
+button[type='submit']::before {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	z-index: -99999;
+	transition: all .4s;
+}
+
+button[type='submit']::before {
+	transform: translate(0%, 0%);
+	width: 100%;
+	height: 100%;
+	background: var(--primary-60);
+	border-radius: 10px;
+}
+
+button[type='submit']::after {
+	transform: translate(10px, 10px);
+	width: 35px;
+	height: 35px;
+	background: #ffffff15;
+	backdrop-filter: blur(5px);
+	border-radius: 50px;
+}
+
+button[type='submit']:hover::before {
+	transform: translate(2.5%, 20%);
+	width: 105%;
+	height: 105%;
+}
+
+button[type='submit']:hover::after {
+	border-radius: 10px;
+	transform: translate(0, 0);
+	width: 100%;
+	height: 100%;
+}
+
+button[type='submit']:active::after {
+	transition: 0s;
+	transform: translate(0, 5%);
+}
+
 
 /* keyframes */
 
