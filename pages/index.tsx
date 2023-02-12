@@ -13,7 +13,6 @@ import useUnderMaintenance from '../hooks/useUnderMaintenance';
 import { GetServerSideProps, getServerSidePropsUtils } from '../utils/GetServerSidePropsUtils';
 
 const Home: NextPage<GetServerSideProps> = (props: GetServerSideProps) => {
-  console.log(props);
   useUnderMaintenance(props.pageInfo);
 
   if (props.pageInfo.useSinglePage) {

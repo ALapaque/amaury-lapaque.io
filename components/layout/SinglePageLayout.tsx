@@ -34,7 +34,7 @@ const SinglePageLayout = ({ children, pageTitle = '', pageInfo, experiences, ski
 
   useEffect(() => {
     document.title = `${ pageInfo.name } ${ pageTitle && '- ' + pageTitle }`;
-  }, [ pageTitle ]);
+  }, [ pageTitle, pageInfo.name ]);
 
   return (
     <>
