@@ -1,16 +1,18 @@
-import { MoonIcon, SunIcon } from '@heroicons/react/24/solid';
+import { useState } from 'react';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import DataStateInterface, { DataState, themeSelector, ThemeState } from '../../stores/data';
 
 const HeaderThemeSwitcher = () => {
   const theme = useRecoilValue<ThemeState | undefined>(themeSelector);
   const [ data, setData ] = useRecoilState<DataStateInterface | null>(DataState);
+  const [ dark, setDark ] = useState<boolean>(true);
 
   const _handleOnThemeSwitch = () => {
     if (!data) {
       return;
     }
 
+    setDark(!theme?.darkMode);
     setData((state) => ({
       ...state,
       theme: state?.theme ? {
@@ -20,19 +22,28 @@ const HeaderThemeSwitcher = () => {
     }));
   };
 
-  if (!theme) {
-    return <></>;
-  }
-
-  const Icon = theme.darkMode ? SunIcon : MoonIcon;
-
   return (
-    <button
-      className={ 'h-[50px] w-[50px] p-[12px]' }
-      onClick={ _handleOnThemeSwitch }>
-      <Icon className={ 'h-[100%] w-[100%] text-[color:var(--text)] transition-all ease-in-out' +
-                        `${ theme.darkMode ? ' hover:text-[yellow]' : ' hover:text-white' }` } />
-    </button>
+    <div className="toggleWrapper">
+      <input type="checkbox"
+             checked={ dark }
+             onChange={ _handleOnThemeSwitch }
+             className="dn"
+             id="dn" />
+      <label htmlFor="dn"
+             className="toggle">
+        <span className="toggle__handler">
+            <span className="crater crater--1"></span>
+            <span className="crater crater--2"></span>
+            <span className="crater crater--3"></span>
+        </span>
+        <span className="star star--1"></span>
+        <span className="star star--2"></span>
+        <span className="star star--3"></span>
+        <span className="star star--4"></span>
+        <span className="star star--5"></span>
+        <span className="star star--6"></span>
+      </label>
+    </div>
   );
 };
 
