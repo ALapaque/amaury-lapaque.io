@@ -39,3 +39,6 @@ next-env.d.ts
 
 .vercel
 /cypress/screenshots/
+!/public/sw.js
+
+!/public/workbox-eac1af49.js
