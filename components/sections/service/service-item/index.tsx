@@ -1,3 +1,4 @@
+import { Player } from '@lottiefiles/react-lottie-player';
 import { AnimationItem } from 'lottie-web';
 import { useEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';
@@ -6,7 +7,6 @@ import { Service } from '../../../../typing';
 import PlatformUtils from '../../../../utils/PlatformUtils';
 import ServiceItemDescription from './ServiceItemDescription';
 import ServiceItemLink from './ServiceItemLink';
-import ServiceItemLottiePlayer from './ServiceItemLottiePlayer';
 import ServiceItemTitle from './ServiceItemTitle';
 
 type Props = {
@@ -63,8 +63,16 @@ const ServiceItem = ({ service }: Props) => {
                        ' group-hover:border' +
                        ' group-hover:scale-90' }>
         <div className="space-y-2">
-          <ServiceItemLottiePlayer svg={ service.svg }
-                                   lottieRef={ (ref: AnimationItem) => setLottieRef(ref) } />
+          <div className={ 'w-full flex justify-center' }>
+            <Player
+              lottieRef={ (item: AnimationItem) => setLottieRef(item) }
+              autoplay={ isDesktop }
+              renderer={ 'canvas' }
+              loop
+              src={ service.svg }
+              className={ 'w-[40vw] md:w-80 md:max-h-100' }
+            />
+          </div>
 
           <div className="space-y-2">
             <ServiceItemTitle>{ service.name }</ServiceItemTitle>
