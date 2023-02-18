@@ -1,6 +1,6 @@
 import { Player } from '@lottiefiles/react-lottie-player';
 import { AnimationItem } from 'lottie-web';
-import { useEffect, useState } from 'react';
+import { useCallback, useLayoutEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';
 import { pageInfoSelector } from '../../../../stores/data';
 import { Service } from '../../../../typing';
@@ -14,13 +14,13 @@ type Props = {
 }
 
 const ServiceItem = ({ service }: Props) => {
-  const isDesktop: boolean = PlatformUtils(window).isDesktop;
+  const [ isDesktop, setIsDesktop ] = useState<boolean>(true);
   const [ lottieRef, setLottieRef ] = useState<AnimationItem | undefined>();
   const pageInfo = useRecoilValue(pageInfoSelector);
 
-  const _goToLastFrame = () => {
+  const _goToLastFrame = useCallback(() => {
     lottieRef && lottieRef?.goToAndStop(lottieRef?.totalFrames - 1, true);
-  };
+  }, [ lottieRef ]);
 
   const _handleOnMouseEnter = () => {
     if (isDesktop) {
@@ -39,13 +39,17 @@ const ServiceItem = ({ service }: Props) => {
     _goToLastFrame();
   };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
+    setIsDesktop(PlatformUtils().isDesktop);
+  }, []);
+
+  useLayoutEffect(() => {
     if (isDesktop) {
       return;
     }
 
     _goToLastFrame();
-  }, [ lottieRef ]);
+  }, [ lottieRef, isDesktop, _goToLastFrame ]);
 
   if (!pageInfo) {
     return <></>;
@@ -67,10 +71,9 @@ const ServiceItem = ({ service }: Props) => {
             <Player
               lottieRef={ (item: AnimationItem) => setLottieRef(item) }
               autoplay={ isDesktop }
-              renderer={ 'canvas' }
               loop
               src={ service.svg }
-              className={ 'w-[40vw] md:w-80 md:max-h-100' }
+              className={ 'h-[40vh] w-[40vw] md:w-80 md:h-80' }
             />
           </div>
 
