@@ -1,11 +1,12 @@
-import { Player } from '@lottiefiles/react-lottie-player';
 import { AnimationItem } from 'lottie-web';
 import { useEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';
 import { pageInfoSelector } from '../../../../stores/data';
 import { Service } from '../../../../typing';
+import PlatformUtils from '../../../../utils/PlatformUtils';
 import ServiceItemDescription from './ServiceItemDescription';
 import ServiceItemLink from './ServiceItemLink';
+import ServiceItemLottiePlayer from './ServiceItemLottiePlayer';
 import ServiceItemTitle from './ServiceItemTitle';
 
 type Props = {
@@ -13,6 +14,7 @@ type Props = {
 }
 
 const ServiceItem = ({ service }: Props) => {
+  const isDesktop: boolean = PlatformUtils(window).isDesktop;
   const [ lottieRef, setLottieRef ] = useState<AnimationItem | undefined>();
   const pageInfo = useRecoilValue(pageInfoSelector);
 
@@ -21,15 +23,27 @@ const ServiceItem = ({ service }: Props) => {
   };
 
   const _handleOnMouseEnter = () => {
+    if (isDesktop) {
+      return;
+    }
+
     lottieRef && lottieRef.play();
   };
 
   const _handleOnMouseLeave = () => {
-    lottieRef && lottieRef.pause();
+    if (isDesktop) {
+      return;
+    }
+
+    !isDesktop && lottieRef && lottieRef.pause();
     _goToLastFrame();
   };
 
   useEffect(() => {
+    if (isDesktop) {
+      return;
+    }
+
     _goToLastFrame();
   }, [ lottieRef ]);
 
@@ -49,14 +63,8 @@ const ServiceItem = ({ service }: Props) => {
                        ' group-hover:border' +
                        ' group-hover:scale-90' }>
         <div className="space-y-2">
-          <div className={ 'w-full flex justify-end' }>
-            <Player
-              lottieRef={ (item: AnimationItem) => setLottieRef(item) }
-              loop
-              src={ service.svg }
-              className={ 'h-20 w-20 md:w-40 md:h-40' }
-            />
-          </div>
+          <ServiceItemLottiePlayer svg={ service.svg }
+                                   lottieRef={ (ref: AnimationItem) => setLottieRef(ref) } />
 
           <div className="space-y-2">
             <ServiceItemTitle>{ service.name }</ServiceItemTitle>
