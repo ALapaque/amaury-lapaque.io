@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.0.15",
+    "@lottiefiles/react-lottie-player": "^3.5.2",
     "@portabletext/react": "^2.0.1",
     "@sanity/image-url": "^1.0.2",
     "framer-motion": "^9.0.2",
