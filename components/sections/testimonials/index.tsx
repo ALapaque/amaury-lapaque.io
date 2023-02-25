@@ -13,7 +13,7 @@ const TestimonialsSection = () => {
       initial={ { opacity: 0 } }
       whileInView={ { opacity: 1 } }
       transition={ { duration: 1.5 } }
-      className={ 'pt-5 flex flex-col text-center items-center' }>
+      className={ 'pt-20 flex flex-col text-center items-center' }>
       <TestimonialsTitle />
 
       <TestimonialsList />

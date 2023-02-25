@@ -10,7 +10,7 @@ const AboutSection = () => {
       whileInView={ { opacity: 1 } }
       transition={ { duration: 1.5 } }
       id={ 'about' }
-      className={ 'pt-5 flex flex-col gap-20 text-center max-w-7xl px-5 mx-auto items-center' }>
+      className={ 'pt-20 flex flex-col gap-20 text-center max-w-7xl px-5 mx-auto items-center' }>
       <AboutTitle />
 
       <div className={ 'flex flex-col gap-10 justify-center items-center' +

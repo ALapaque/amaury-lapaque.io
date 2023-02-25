@@ -10,7 +10,7 @@ const ServiceSection = () => {
       whileInView={ { opacity: 1 } }
       transition={ { duration: 1.5 } }
       className={ 'flex flex-col text-left max-w-full' +
-                  ' justify-evenly mx-auto items-center z-10' }>
+                  ' justify-evenly mx-auto items-center pt-20' }>
       <ServicesTitle />
 
       <ServicesList />

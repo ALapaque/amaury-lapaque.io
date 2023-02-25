@@ -13,10 +13,9 @@ const ServicesList = () => {
 
   return (
     <div className={ 'h-full px-10 py-10 md:px-40' }>
-      <div className={ 'py-16 border-radius-full grid gap-2 md:gap-6 divide-x divide-y rounded-xl overflow-hidden' +
-                       ' sm:grid-cols-2' +
+      <div className={ 'py-16 border-radius-full grid-cols-1 grid gap-2 md:gap-6 divide-x divide-y rounded-xl overflow-hidden' +
                        ' lg:divide-y-0' +
-                       ' lg:grid-cols-3 xl:grid-cols-4' }>
+                       ' lg:grid-cols-2' }>
         { services.map((service: Service) => (
           <ServiceItem key={ service._id }
                        service={ service } />
