@@ -1,3 +1,5 @@
+import {PortableTextBlock} from "@portabletext/types";
+
 type SanityTypes =
   string
   | 'image'
@@ -122,6 +124,6 @@ export interface Theme extends SanityBody<'theme'> {
 
 export interface Service extends SanityBody<'service'>, Orderable {
   name: string,
-  description: string,
+  description: PortableTextBlock,
   svg: string,
 }

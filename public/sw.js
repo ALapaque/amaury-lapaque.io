@@ -20,34 +20,34 @@ if (!self.define) {
   let nextDefineUri;
 
   const singleRequire = (uri, parentUri) => {
-    uri = new URL(uri + '.js', parentUri).href;
+    uri = new URL(uri + ".js", parentUri).href;
     return registry[uri] || (
-
-      new Promise(resolve => {
-        if ('document' in self) {
-          const script = document.createElement('script');
-          script.src = uri;
-          script.onload = resolve;
-          document.head.appendChild(script);
-        } else {
-          nextDefineUri = uri;
-          importScripts(uri);
-          resolve();
-        }
-      })
-
-        .then(() => {
-          let promise = registry[uri];
-          if (!promise) {
-            throw new Error(`Module ${uri} didn’t register its module`);
+      
+        new Promise(resolve => {
+          if ("document" in self) {
+            const script = document.createElement("script");
+            script.src = uri;
+            script.onload = resolve;
+            document.head.appendChild(script);
+          } else {
+            nextDefineUri = uri;
+            importScripts(uri);
+            resolve();
           }
-          return promise;
         })
+      
+      .then(() => {
+        let promise = registry[uri];
+        if (!promise) {
+          throw new Error(`Module ${uri} didn’t register its module`);
+        }
+        return promise;
+      })
     );
   };
 
   self.define = (depsNames, factory) => {
-    const uri = nextDefineUri || ('document' in self ? document.currentScript.src : '') || location.href;
+    const uri = nextDefineUri || ("document" in self ? document.currentScript.src : "") || location.href;
     if (registry[uri]) {
       // Module is already loading or loaded.
       return;
@@ -67,33 +67,32 @@ if (!self.define) {
     });
   };
 }
-define(['./workbox-eac1af49'], (function(workbox) {
-  'use strict';
+define(['./workbox-eac1af49'], (function (workbox) { 'use strict';
 
   /**
-   * Welcome to your Workbox-powered service worker!
-   *
-   * You'll need to register this file in your web app.
-   * See https://goo.gl/nhQhGp
-   *
-   * The rest of the code is auto-generated. Please don't update this file
-   * directly; instead, make changes to your Workbox build configuration
-   * and re-run your build process.
-   * See https://goo.gl/2aRDsh
-   */
+  * Welcome to your Workbox-powered service worker!
+  *
+  * You'll need to register this file in your web app.
+  * See https://goo.gl/nhQhGp
+  *
+  * The rest of the code is auto-generated. Please don't update this file
+  * directly; instead, make changes to your Workbox build configuration
+  * and re-run your build process.
+  * See https://goo.gl/2aRDsh
+  */
 
   importScripts();
   self.skipWaiting();
   workbox.clientsClaim();
-  workbox.registerRoute('/', new workbox.NetworkFirst({
-    'cacheName': 'start-url',
+  workbox.registerRoute("/", new workbox.NetworkFirst({
+    "cacheName": "start-url",
     plugins: [{
       cacheWillUpdate: async ({
-                                request,
-                                response,
-                                event,
-                                state
-                              }) => {
+        request,
+        response,
+        event,
+        state
+      }) => {
         if (response && response.type === 'opaqueredirect') {
           return new Response(response.body, {
             status: 200,
@@ -107,7 +106,7 @@ define(['./workbox-eac1af49'], (function(workbox) {
     }]
   }), 'GET');
   workbox.registerRoute(/.*/i, new workbox.NetworkOnly({
-    'cacheName': 'dev',
+    "cacheName": "dev",
     plugins: []
   }), 'GET');
 
