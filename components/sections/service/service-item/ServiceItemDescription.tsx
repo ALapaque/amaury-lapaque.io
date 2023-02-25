@@ -2,11 +2,16 @@ import {PortableText} from "@portabletext/react";
 import {PortableTextBlock} from "@portabletext/types";
 
 type Props = {
-    description: PortableTextBlock
+    description: PortableTextBlock | string
 }
 
 const ServiceItemDescription = ({description}: Props) => {
-    console.log('description', description)
+    if (typeof description === 'string') {
+        return (
+            <p className="pl-4 text-sm"
+               dangerouslySetInnerHTML={ { __html: description } } />
+        )
+    }
 
     return (
         <div className={'pl-4'}>
