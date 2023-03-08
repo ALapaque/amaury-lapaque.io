@@ -10,10 +10,8 @@ function MyApp({Component, pageProps}: AppProps) {
 
 	const unregister = () => {
 		if ('serviceWorker' in navigator) {
-			navigator.serviceWorker.getRegistrations().then(function (registrations) {
-				for (const registration of registrations) {
-					registration.unregister()
-				}
+			navigator.serviceWorker.getRegistrations().then((registrations: ReadonlyArray<ServiceWorkerRegistration>) => {
+				registrations.forEach((registration: ServiceWorkerRegistration) => void registration.unregister())
 			})
 		}
 	}
