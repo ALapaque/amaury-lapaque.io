@@ -3,9 +3,22 @@ import Head from 'next/head';
 import {RecoilRoot} from 'recoil';
 import useEventTracker from '../hooks/useEventTracker';
 import '../styles/globals.css';
+import {useEffect} from "react";
 
 function MyApp({Component, pageProps}: AppProps) {
 	useEventTracker();
+
+	const unregister = () => {
+		if ('serviceWorker' in navigator) {
+			navigator.serviceWorker.getRegistrations().then((registrations: ReadonlyArray<ServiceWorkerRegistration>) => {
+				registrations.forEach((registration: ServiceWorkerRegistration) => void registration.unregister())
+			})
+		}
+	}
+
+	useEffect(() => {
+		unregister()
+	}, [])
 
 	return (
 		<>
