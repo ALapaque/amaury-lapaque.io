@@ -4,7 +4,7 @@ import { useRecoilValue } from 'recoil'
 import DataStateInterface, { DataState } from '../../../stores/data'
 
 const HeroTitle = () => {
-  const [ words, setWords ] = useState<string[]>([])
+  const [ words, setWords ] = useState<string[]>([''])
   const data = useRecoilValue<DataStateInterface | null>(DataState)
   const [ text ] = useTypewriter({
     words,
@@ -19,10 +19,6 @@ const HeroTitle = () => {
 
     setWords(data.pageInfo.typeWritterValue.split('-'))
   }, [ data?.pageInfo?.typeWritterValue ])
-
-  if (!text || !words) {
-    return <></>
-  }
 
   return (
     <h1 className={'text-5xl lg:text-6xl font-semibold px-10'}>
