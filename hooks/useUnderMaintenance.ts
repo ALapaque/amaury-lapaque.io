@@ -2,12 +2,16 @@ import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { PageInfo } from '../typing';
 
-const useUnderMaintenance = ({ maintenance }: PageInfo) => {
+const useUnderMaintenance = (props: PageInfo | undefined) => {
   const router = useRouter();
 
   useEffect(() => {
-    (process.env.NODE_ENV === 'production' && maintenance) && router.push('/under-maintenance');
-  }, [ router, maintenance ]);
+    if (!props?.maintenance) {
+      return
+    }
+
+    (process.env.NODE_ENV === 'production' && props.maintenance) && router.push('/under-maintenance');
+  }, [ router, props?.maintenance ]);
 };
 
 export default useUnderMaintenance;
